@@ -338,11 +338,11 @@
 <span class="p">}</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl GET <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
   https://mercury-summer.valiant.finance/api/v1/authenticate <span class="se">\</span>
-  -H <span class="s1">'X-AUTH-ID: &lt;API_ID&gt;'</span> <span class="se">\</span>
-  -H <span class="s1">'X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
 </code></pre>
 <p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.</p>
 
@@ -396,18 +396,18 @@
 <span class="p">}</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">));</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX POST <span class="se">\</span>
   https://mercury-summer.valiant.finance/api/v1/leads <span class="se">\</span>
-  -H <span class="s1">'X-AUTH-ID: &lt;API_ID&gt;'</span> <span class="se">\</span>
-  -H <span class="s1">'X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span> <span class="se">\</span>
   -d <span class="s1">'{
-    "first_name": "Isaac",
-    "last_name": "Newton",
-    "email": "api@valiant.finance",
-    "phone": "0400000000",
-    "months_trading": "12"
-}'</span>
+        "first_name":     "Isaac",
+        "last_name":      "Newton",
+        "email":          "api@valiant.finance",
+        "phone":          "0400000000",
+        "months_trading": "12"
+      }'</span>
 </code></pre>
 <blockquote>
 <p>Example response</p>
