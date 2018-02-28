@@ -61,7 +61,7 @@ curl -iX GET \
   -H "Content-Type:      application/vnd.api+json"
 ```
 
-> ⚠️ Be sure to replace <API_ID> and <API_SIGNED_KEY> with your API credentials!
+> ⚠️ Be sure to replace `<API_ID>` and `<API_SIGNED_KEY>` with your API credentials!
 
 We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.
 
