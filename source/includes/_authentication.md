@@ -67,4 +67,4 @@ We have created an API endpoint which an empty request can be sent to in order t
 | ----------------- | ---------------------- |
 | Endpoint          | `/api/v1/authenticate` |
 | Supported methods | `GET`                  |
-| Description       | Test if authentication headers are correctly set. If the authentication & content type headers are set correctly, the endpoint will return a 200 OK status with an empty body. If authentication headers aren't set correctly the endpoint will return a 401 Unauthorized header with an empty body. |
+| Description       | Test if authentication headers are correctly set. If the authentication & content type headers are set correctly, the endpoint will return a `200 OK` status with an empty body. If authentication headers aren't set correctly the endpoint will return a `401 Unauthorized` header with an empty body. |
