@@ -6,6 +6,14 @@ Our Lead API allows third parties to directly submit Leads to Valiant via the AP
 
 ## Create a Lead
 
+| Item              | Details                                             |
+| ----------------- | --------------------------------------------------- |
+| Endpoint          | `/api/v1/leads`                                     |
+| Supported methods | `POST`                                              |
+| Description       | Submits a Lead with the given details to Valiant.   |
+
+### Accepted Params
+
 > Example request
 
 ```javascript
@@ -49,6 +57,17 @@ curl -iX POST \
       }'
 ```
 
+| Attribute        | Required? | Type      | Description                            |
+| ---------------- | --------- | --------- | -------------------------------------- |
+| first_name       | `true`    | `string`  | A string less than 255 characters long |
+| last_name        | `true`    | `string`  | A string less than 255 characters long |
+| phone            | `true`    | `string`  | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
+| email            | `true`    | `string`  | Must conform to a valid email address. |
+| requested_amount | `false`   | `integer` | The amount of the loan being requested. Must be a value greater than 0 if provided.	|
+| months_trading   | `false`   | `integer` | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
+
+### Returned Attributes
+
 > Example response
 
 ```json
@@ -62,25 +81,6 @@ curl -iX POST \
   }
 }
 ```
-
-| Item              | Details                                             |
-| ----------------- | --------------------------------------------------- |
-| Endpoint          | `/api/v1/leads`                                     |
-| Supported methods | `POST`                                              |
-| Description       | Submits a Lead with the given details to Valiant.   |
-
-### Accepted Params
-
-| Attribute        | Required? | Type      | Description                            |
-| ---------------- | --------- | --------- | -------------------------------------- |
-| first_name       | `true`    | `string`  | A string less than 255 characters long |
-| last_name        | `true`    | `string`  | A string less than 255 characters long |
-| phone            | `true`    | `string`  | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
-| email            | `true`    | `string`  | Must conform to a valid email address. |
-| requested_amount | `false`   | `integer` | The amount of the loan being requested. Must be a value greater than 0 if provided.	|
-| months_trading   | `false`   | `integer` | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
-
-### Returned Attributes
 
 | Attribute    | Description                                 |
 | ------------ | ------------------------------------------- |
