@@ -79,3 +79,10 @@ curl -iX POST \
 | email            | `true`    | `string`  | Must conform to a valid email address. |
 | requested_amount | `false`   | `integer` | The amount of the loan being requested. Must be a value greater than 0 if provided.	|
 | months_trading   | `false`   | `integer` | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
+
+### Returned Attributes
+
+| Attribute    | Description                                 |
+| ------------ | ------------------------------------------- |
+| `id`         | The UUID generated for the Lead by Valiant. |
+| `created_at` | The UTC datetime the Lead was created.      |
