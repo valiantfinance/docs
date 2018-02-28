@@ -233,7 +233,7 @@
                     <a href="#headers" class="toc-h2 toc-link" data-title="headers">Headers</a>
                   </li>
                   <li>
-                    <a href="#testing-authentication-headers" class="toc-h2 toc-link" data-title="testing-authentication-headers">Testing authentication headers</a>
+                    <a href="#testing-authentication" class="toc-h2 toc-link" data-title="testing-authentication">Testing Authentication</a>
                   </li>
               </ul>
           </li>
@@ -299,7 +299,7 @@
 </thead><tbody>
 <tr>
 <td><strong><code>X-AUTH-ID</code></strong></td>
-<td>Your API client <code>uuid</code> that is provided once your API account has been established.</td>
+<td>Your API client <code>id</code> that is a <code>uuid</code> provided once your API account has been established.</td>
 </tr>
 <tr>
 <td><strong><code>X-AUTH-SIGNED-KEY</code></strong></td>
@@ -316,10 +316,10 @@
 <p>A great resource that provides examples of generating <code>base64</code> hashes using <code>HMAC-SHA256</code> in a variety of different languages can be found <a href="https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/">here</a>.</p>
 <h3 id='unauthorized-amp-unverified-requests'>Unauthorized &amp; unverified requests</h3>
 <ul>
-<li>Any API requests made without valid authentication headers will fail and return a <code>401 Unauthorized</code> status.</li>
-<li>Any API requests made without the correct content type will fail and return a <code>400 Bad Request</code> status.</li>
+<li>Requests made <em>without valid authentication headers</em> will return a <code>401 Unauthorized</code> status.</li>
+<li>Requests made <em>without the correct content type</em> will return a <code>400 Bad Request</code> status.</li>
 </ul>
-<h2 id='testing-authentication-headers'>Testing authentication headers</h2>
+<h2 id='testing-authentication'>Testing Authentication</h2>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -344,6 +344,10 @@
   -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
 </code></pre>
+<blockquote>
+<p>⚠️ Be sure to replace <API_ID> and <API_SIGNED_KEY> with your API credentials!</p>
+</blockquote>
+
 <p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.</p>
 
 <table><thead>
