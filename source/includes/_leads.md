@@ -35,18 +35,18 @@ xhr.send(JSON.stringify(params));
 ```
 
 ```shell
-curl -X POST \
+curl -iX POST \
   https://mercury-summer.valiant.finance/api/v1/leads \
-  -H 'X-AUTH-ID: <API_ID>' \
-  -H 'X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>' \
-  -H 'Content-Type: application/vnd.api+json' \
+  -H "X-AUTH-ID:         <API_ID>" \
+  -H "X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>" \
+  -H "Content-Type:      application/vnd.api+json" \
   -d '{
-    "first_name": "Isaac",
-    "last_name": "Newton",
-    "email": "api@valiant.finance",
-    "phone": "0400000000",
-    "months_trading": "12"
-}'
+        "first_name":     "Isaac",
+        "last_name":      "Newton",
+        "email":          "api@valiant.finance",
+        "phone":          "0400000000",
+        "months_trading": "12"
+      }'
 ```
 
 > Example response

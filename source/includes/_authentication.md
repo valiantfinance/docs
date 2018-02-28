@@ -54,11 +54,11 @@ xhr.send();
 ```
 
 ```shell
-curl GET \
+curl -iX GET \
   https://mercury-summer.valiant.finance/api/v1/authenticate \
-  -H 'X-AUTH-ID: <API_ID>' \
-  -H 'X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>' \
-  -H 'Content-Type: application/vnd.api+json' \
+  -H "X-AUTH-ID:         <API_ID>" \
+  -H "X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>" \
+  -H "Content-Type:      application/vnd.api+json"
 ```
 
 We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.
