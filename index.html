@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Valiant API</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -198,10 +198,10 @@
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,291 +211,338 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#valiant-api" class="toc-h1 toc-link" data-title="valiant-api">🦁 Valiant API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#introduction" class="toc-h2 toc-link" data-title="introduction">Introduction</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#sandbox-amp-testing" class="toc-h2 toc-link" data-title="sandbox-amp-testing">Sandbox &amp; testing</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#testing-authentication-headers" class="toc-h2 toc-link" data-title="testing-authentication-headers">Testing authentication headers</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#leads" class="toc-h1 toc-link" data-title="leads">Leads</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-lead" class="toc-h2 toc-link" data-title="create-a-lead">Create a Lead</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-status-code-summary" class="toc-h2 toc-link" data-title="http-status-code-summary">HTTP status code summary</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li>Made in Sydney, Australia by <a href="https://valiant.finance/">Valiant</a> 🇦🇺</li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='valiant-api'>🦁 Valiant API</h1><h2 id='introduction'>Introduction</h2>
+<p>Welcome to the Valiant API!</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>The Valiant API is a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> API with predictable, resource-oriented URLs, and uses semantic HTTP response codes to indicate API errors. Our API supports <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">cross-origin resource sharing (CORS)</a>, allowing you to securely consume our API from any client-side web application. <a href="http://www.json.org/">JSON</a> is returned by all resource related API responses and all API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure"><code>HTTPS</code></a>. The API follows the <a href="http://jsonapi.org/"><code>json:api</code></a> specification for all requests and responses.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+  To get started with our API please send through a request to <a href="mailto:dev@valiant.finance">dev@valiant.finance</a> with your details, your company's details, and why you would like to use the API and we will onboard you.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='sandbox-amp-testing'>Sandbox &amp; testing</h2>
+<p>As a part of on-boarding we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same however the root domain differs as detailed below.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li><strong>Sandbox</strong> – <a href="https://mercury-summer.valiant.finance/"><code>https://mercury-summer.valiant.finance/</code></a></li>
+<li><strong>Production</strong> – <a href="https://valiant.finance/"><code>https://valiant.finance/</code></a></li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>To test the API Sandbox we recommend using <a href="https://www.getpostman.com/">Postman</a>. We couldn&#39;t live without it! 📮</p>
+<h1 id='authentication'>Authentication</h1>
+<p>🔐</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<p>Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API <code>uuid</code>,  <code>key</code> and <code>secret</code> which are the credentials that allow access to the API. These parameters are used to generate a set of <code>HTTP</code> headers that are used to authenticate requests.</p>
+
+<p>The content type of all calls made to the API are also verified. The <strong><code>Content-Type</code></strong> header in every request must be set to <code>application/vnd.api+json</code>.</p>
+
+<aside class="warning">
+  ⚠️ Be sure to never expose your API <code>key</code>, <code>secret</code> or <code>signed key</code> in any publicly accessible areas like GitHub, client-side code or website logs!
+</aside>
+<h2 id='headers'>Headers</h2>
+<p>We authenticate and verify all API requests via three HTTP headers that are required to be set in all API requests.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>X-AUTH-ID</code></strong></td>
+<td>Your API client <code>uuid</code> that is provided once your API account has been established.</td>
+</tr>
+<tr>
+<td><strong><code>X-AUTH-SIGNED-KEY</code></strong></td>
+<td>A <code>base64</code> string generated by <code>HMAC-SHA256</code> signing your API <code>key</code> with your API <code>secret</code>.</td>
+</tr>
+<tr>
+<td><strong><code>Content-Type</code></strong></td>
+<td>All requests must be set to <code>application/vnd.api+json</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='generating-your-signed-key'>Generating your signed key</h3>
+<p>To generate your <code>signed key</code> for the <strong><code>X-AUTH-SIGNED-KEY</code></strong> header you must generate a <code>base64</code> string of <code>HMAC-SHA256</code> signing your API <code>key</code> with your API <code>secret</code>.</p>
+
+<p>A great resource that provides examples of generating <code>base64</code> hashes using <code>HMAC-SHA256</code> in a variety of different languages can be found <a href="https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/">here</a>.</p>
+<h3 id='unauthorized-amp-unverified-requests'>Unauthorized &amp; unverified requests</h3>
+<ul>
+<li>Any API requests made without valid authentication headers will fail and return a <code>401 Unauthorized</code> status.</li>
+<li>Any API requests made without the correct content type will fail and return a <code>400 Bad Request</code> status.</li>
+</ul>
+<h2 id='testing-authentication-headers'>Testing authentication headers</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/authenticate"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/authenticate <span class="se">\</span>
+  -H <span class="s1">'X-AUTH-ID: &lt;API_ID&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+</code></pre>
+<p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.</p>
+
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/authenticate</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Test if authentication headers are correctly set. If the authentication &amp; content type headers are set correctly, the endpoint will return a 200 OK status with an empty body. If authentication headers aren&#39;t set correctly the endpoint will return a 401 Unauthorized header with an empty body.</td>
+</tr>
+</tbody></table>
+<h1 id='leads'>Leads</h1>
+<p>🏅</p>
+
+<p>Our Lead API allows third parties to directly submit Leads to Valiant via the API.</p>
+<h2 id='create-a-lead'>Create a Lead</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"first_name"</span><span class="p">:</span>     <span class="s2">"Isaac"</span><span class="p">,</span>
+  <span class="s2">"last_name"</span><span class="p">:</span>      <span class="s2">"Newton"</span><span class="p">,</span>
+  <span class="s2">"phone"</span><span class="p">:</span>          <span class="s2">"0400000000"</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="p">:</span>          <span class="s2">"api@valiant.finance"</span><span class="p">,</span>
+  <span class="s2">"months_trading"</span><span class="p">:</span> <span class="s2">"12"</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/leads"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">));</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/leads <span class="se">\</span>
+  -H <span class="s1">'X-AUTH-ID: &lt;API_ID&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/vnd.api+json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "first_name": "Isaac",
+    "last_name": "Newton",
+    "email": "api@valiant.finance",
+    "phone": "0400000000",
+    "months_trading": "12"
+}'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6bbba93f-48c4-413b-88cf-de6436ccb20c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leads"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01T00:00:00.001Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Item</th>
+<th>Details</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>Endpoint</td>
+<td><code>/api/v1/leads</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>POST</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Submits a Lead with the given details to Valiant.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='accepted-params'>Accepted Params</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Attribute</th>
+<th>Required?</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>first_name</td>
+<td><code>true</code></td>
+<td><code>string</code></td>
+<td>A string less than 255 characters long</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><code>true</code></td>
+<td><code>string</code></td>
+<td>A string less than 255 characters long</td>
+</tr>
+<tr>
+<td>phone</td>
+<td><code>true</code></td>
+<td><code>string</code></td>
+<td>Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300.</td>
+</tr>
+<tr>
+<td>email</td>
+<td><code>true</code></td>
+<td><code>string</code></td>
+<td>Must conform to a valid email address.</td>
+</tr>
+<tr>
+<td>requested_amount</td>
+<td><code>false</code></td>
+<td><code>integer</code></td>
+<td>The amount of the loan being requested. Must be a value greater than 0 if provided.</td>
+</tr>
+<tr>
+<td>months_trading</td>
+<td><code>false</code></td>
+<td><code>integer</code></td>
+<td>The months the Lead&#39;s business has been trading. Must be a value greater than 0 if provided.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<p>⚠️</p>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Valiant API uses conventional <code>HTTP</code> response codes to indicate the the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"><code>HTTP</code> status</a> an API request.</p>
 
+<ul>
+<li>HTTP status codes in the <code>2xx</code> range indicate <strong>success 🎉</strong></li>
+<li>HTTP status codes in the <code>4xx</code> range indicate an <strong>error</strong> given the request 🚫
+
+<ul>
+<li>e.g., the request was unauthorized, a required parameter was omitted, a validation failed, etc.</li>
+</ul></li>
+<li>HTTP status codes in the <code>5xx</code> range indicate an <strong>internal server error</strong> on the Valiant side 💥</li>
+</ul>
+<h3 id='http-status-code-summary'>HTTP status code summary</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td><code>200 OK</code></td>
+<td>Everything worked as expected.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td><code>201 Created</code></td>
+<td>The resource was created successfully.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td><code>400 Bad Request</code></td>
+<td>The request was unacceptable, often due to missing a required parameter.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td><code>401 Unauthorized</code></td>
+<td>No valid authentication headers found.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td><code>402 Request Failed</code></td>
+<td>The parameters were valid but the request failed.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td><code>404 Not Found</code></td>
+<td>The requested resource doesn&#39;t exist.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td><code>500 Server Error</code></td>
+<td>Something went wrong on Valiant&#39;s end.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
