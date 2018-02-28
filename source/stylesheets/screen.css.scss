@@ -351,9 +351,9 @@ html, body {
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background-color: #fdfdfd;
+    // border-top: 1px solid #ccc;
+    border-bottom: 1px solid #e7eaed;
+    background-color: #fff;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -364,9 +364,9 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 19px;
-    margin-top: 4em;
+    margin-top: 1.2em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #e7eaed;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
@@ -462,6 +462,7 @@ html, body {
   }
 
   aside {
+    color: #fff;
     padding-top: 1em;
     padding-bottom: 1em;
     margin-top: 1.5em;
@@ -476,6 +477,8 @@ html, body {
     &.success {
       background-color: $aside-success-bg;
     }
+
+    a { color: #fff; }
   }
 
   aside:before {
