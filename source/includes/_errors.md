@@ -9,7 +9,7 @@ The Valiant API uses conventional `HTTP` response codes to indicate the the [`HT
     * e.g., the request was unauthorized, a required parameter was omitted, a validation failed, etc.
 * HTTP status codes in the `5xx` range indicate an **internal server error** on the Valiant side 💥
 
-### HTTP status code summary
+### HTTP Status Codes
 
 | Code                 | Meaning                                                                  |
 | -------------------- | ------------------------------------------------------------------------ |
