@@ -8,7 +8,7 @@ The Valiant API is a [RESTful](http://en.wikipedia.org/wiki/Representational_Sta
   To get started with our API please send through a request to <a href="mailto:dev@valiant.finance">dev@valiant.finance</a> with your details, your company's details, and why you would like to use the API and we will onboard you.
 </aside>
 
-## Sandbox & testing
+## Sandbox
 
 As a part of on-boarding we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same however the root domain differs as detailed below.
 
