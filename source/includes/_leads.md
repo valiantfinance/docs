@@ -12,7 +12,7 @@ Our Lead API allows third parties to directly submit Leads to Valiant via the AP
 | Supported methods | `POST`                                              |
 | Description       | Submits a Lead with the given details to Valiant.   |
 
-### Accepted Params
+### Parameters
 
 > Example request
 
@@ -57,18 +57,20 @@ curl -iX POST \
       }'
 ```
 
-| Attribute        | Required? | Type      | Description                            |
-| ---------------- | --------- | --------- | -------------------------------------- |
-| first_name       | `true`    | `string`  | A string less than 255 characters long |
-| last_name        | `true`    | `string`  | A string less than 255 characters long |
-| phone            | `true`    | `string`  | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
-| email            | `true`    | `string`  | Must conform to a valid email address. |
-| requested_amount | `false`   | `integer` | The amount of the loan being requested. Must be a value greater than 0 if provided.	|
-| months_trading   | `false`   | `integer` | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
+Below lists a detail of accepted parameters that can be posted to the endpoint as a part of a valid `JSON` payload. A number of attributes are required.
 
-### Returned Attributes
+| Attribute            | Type      | Required | Description                           |
+| -------------------- | --------- | -------- | ------------------------------------- |
+| **first_name**       | `string`  | `true`   | Must be less than 255 characters long |
+| **last_name**        | `string`  | `true`   | Must be less than 255 characters long |
+| **phone**            | `string`  | `true`   | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
+| **email**            | `string`  | `true`   | Must conform to a valid email address. |
+| **requested_amount** | `integer` | `false`  | The amount of the loan being requested. Must be a value greater than 0 if provided. |
+| **months_trading**   | `integer` | `false`  | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
 
-> Example response
+### Response
+
+> Example successful response
 
 ```json
 {
@@ -76,13 +78,24 @@ curl -iX POST \
     "id": "6bbba93f-48c4-413b-88cf-de6436ccb20c",
     "type": "leads",
     "attributes": {
-      "created-at": "2018-02-01T00:00:00.001Z"
+      "created_at": "2017-08-17T00:00:00.001Z"
     }
   }
 }
 ```
 
+If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
+
+| Data         | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `id`         | A `uuid` generated for the resource by Valiant.  |
+| `type`       | Pluralized name of the resource called on.       |
+| `attributes` | A map with values of resource attributes.        |
+
+### Attributes
+
+The values of attributes included in the `attributes` hash are:
+
 | Attribute    | Description                                 |
 | ------------ | ------------------------------------------- |
-| `id`         | The UUID generated for the Lead by Valiant. |
-| `created_at` | The UTC datetime the Lead was created.      |
+| `created_at` | The UTC datetime the resource was created.  |
