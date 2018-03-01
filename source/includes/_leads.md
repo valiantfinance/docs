@@ -86,11 +86,11 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 
 If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
 
-| Data             | Description                                      |
-| ---------------- | ------------------------------------------------ |
-| **`id`**         | A `uuid` generated for the resource by Valiant.  |
-| **`type`**       | Pluralized name of the resource called on.       |
-| **`attributes`** | A map with values of resource attributes.        |
+| Data             | Description                                                                 |
+| ---------------- | --------------------------------------------------------------------------- |
+| **`id`**         | A unique identifier in `uuid` format generated for the resource by Valiant. |
+| **`type`**       | Pluralized name of the resource called on.                                  |
+| **`attributes`** | A map with values of resource attributes.                                   |
 
 ### Attributes
 
@@ -99,3 +99,7 @@ The values of attributes included in the `attributes` hash are:
 | Attribute        | Description                                 |
 | ---------------- | ------------------------------------------- |
 | **`created_at`** | The UTC datetime the resource was created.  |
+
+<aside class="notice">
+  Future releases of the Valiant API will allow the lookup of Leads using the returned <code>id</code> here as a reference. Be sure to store the returned <code>id</code> if you think you might want to look up the Lead at a later date.
+</aside>
