@@ -59,14 +59,14 @@ curl -iX POST \
 
 Below lists a detail of accepted parameters that can be posted to the endpoint as a part of a valid `JSON` payload. A number of attributes are required.
 
-| Attribute            | Type      | Required | Description                           |
-| -------------------- | --------- | -------- | ------------------------------------- |
-| **first_name**       | `string`  | `true`   | Must be less than 255 characters long |
-| **last_name**        | `string`  | `true`   | Must be less than 255 characters long |
-| **phone**            | `string`  | `true`   | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
-| **email**            | `string`  | `true`   | Must conform to a valid email address. |
-| **requested_amount** | `integer` | `false`  | The amount of the loan being requested. Must be a value greater than 0 if provided. |
-| **months_trading**   | `integer` | `false`  | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
+| Attribute              | Type      | Required | Description                           |
+| ---------------------- | --------- | :------: | ------------------------------------- |
+| **`first_name`**       | `string`  | ✓        | Must be less than 255 characters long |
+| **`last_name`**        | `string`  | ✓        | Must be less than 255 characters long |
+| **`phone`**            | `string`  | ✓        | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
+| **`email`**            | `string`  | ✓        | Must conform to a valid email address. |
+| **`requested_amount`** | `integer` |          | The amount of the loan being requested. Must be a value greater than 0 if provided. |
+| **`months_trading`**   | `integer` |          | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
 
 ### Response
 
@@ -86,16 +86,16 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 
 If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
 
-| Data         | Description                                      |
-| ------------ | ------------------------------------------------ |
-| `id`         | A `uuid` generated for the resource by Valiant.  |
-| `type`       | Pluralized name of the resource called on.       |
-| `attributes` | A map with values of resource attributes.        |
+| Data             | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| **`id`**         | A `uuid` generated for the resource by Valiant.  |
+| **`type`**       | Pluralized name of the resource called on.       |
+| **`attributes`** | A map with values of resource attributes.        |
 
 ### Attributes
 
 The values of attributes included in the `attributes` hash are:
 
-| Attribute    | Description                                 |
-| ------------ | ------------------------------------------- |
-| `created_at` | The UTC datetime the resource was created.  |
+| Attribute        | Description                                 |
+| ---------------- | ------------------------------------------- |
+| **`created_at`** | The UTC datetime the resource was created.  |
