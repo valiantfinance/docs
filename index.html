@@ -504,7 +504,7 @@
 </thead><tbody>
 <tr>
 <td><strong><code>id</code></strong></td>
-<td>A <code>uuid</code> generated for the resource by Valiant.</td>
+<td>A unique identifier in <code>uuid</code> format generated for the resource by Valiant.</td>
 </tr>
 <tr>
 <td><strong><code>type</code></strong></td>
@@ -529,6 +529,10 @@
 <td>The UTC datetime the resource was created.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  Future releases of the Valiant API will allow the lookup of Leads using the returned <code>id</code> here as a reference. Be sure to store the returned <code>id</code> if you think you might want to look up the Lead at a later date.
+</aside>
 <h1 id='errors'>Errors</h1>
 <p>⚠️</p>
 
