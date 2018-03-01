@@ -393,7 +393,7 @@
 <td>Submits a Lead with the given details to Valiant.</td>
 </tr>
 </tbody></table>
-<h3 id='accepted-params'>Accepted Params</h3>
+<h3 id='parameters'>Parameters</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -433,65 +433,91 @@
         "months_trading": "12"
       }'</span>
 </code></pre>
+<p>Below lists a detail of accepted parameters that can be posted to the endpoint as a part of a valid <code>JSON</code> payload. A number of attributes are required.</p>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
-<th>Required?</th>
 <th>Type</th>
+<th style="text-align: center">Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name</td>
-<td><code>true</code></td>
+<td><strong><code>first_name</code></strong></td>
 <td><code>string</code></td>
-<td>A string less than 255 characters long</td>
+<td style="text-align: center">✓</td>
+<td>Must be less than 255 characters long</td>
 </tr>
 <tr>
-<td>last_name</td>
-<td><code>true</code></td>
+<td><strong><code>last_name</code></strong></td>
 <td><code>string</code></td>
-<td>A string less than 255 characters long</td>
+<td style="text-align: center">✓</td>
+<td>Must be less than 255 characters long</td>
 </tr>
 <tr>
-<td>phone</td>
-<td><code>true</code></td>
+<td><strong><code>phone</code></strong></td>
 <td><code>string</code></td>
+<td style="text-align: center">✓</td>
 <td>Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300.</td>
 </tr>
 <tr>
-<td>email</td>
-<td><code>true</code></td>
+<td><strong><code>email</code></strong></td>
 <td><code>string</code></td>
+<td style="text-align: center">✓</td>
 <td>Must conform to a valid email address.</td>
 </tr>
 <tr>
-<td>requested_amount</td>
-<td><code>false</code></td>
+<td><strong><code>requested_amount</code></strong></td>
 <td><code>integer</code></td>
+<td style="text-align: center"></td>
 <td>The amount of the loan being requested. Must be a value greater than 0 if provided.</td>
 </tr>
 <tr>
-<td>months_trading</td>
-<td><code>false</code></td>
+<td><strong><code>months_trading</code></strong></td>
 <td><code>integer</code></td>
+<td style="text-align: center"></td>
 <td>The months the Lead&#39;s business has been trading. Must be a value greater than 0 if provided.</td>
 </tr>
 </tbody></table>
-<h3 id='returned-attributes'>Returned Attributes</h3>
+<h3 id='response'>Response</h3>
 <blockquote>
-<p>Example response</p>
+<p>Example successful response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6bbba93f-48c4-413b-88cf-de6436ccb20c"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leads"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-01T00:00:00.001Z"</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-17T00:00:00.001Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>If a request is successful, a <a href="http://jsonapi.org/"><code>json:api</code></a> compliant <code>JSON</code> response will be delivered with all resource related information in a <code>data</code> key.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>id</code></strong></td>
+<td>A <code>uuid</code> generated for the resource by Valiant.</td>
+</tr>
+<tr>
+<td><strong><code>type</code></strong></td>
+<td>Pluralized name of the resource called on.</td>
+</tr>
+<tr>
+<td><strong><code>attributes</code></strong></td>
+<td>A map with values of resource attributes.</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<p>The values of attributes included in the <code>attributes</code> hash are:</p>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -499,12 +525,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
-<td>The UUID generated for the Lead by Valiant.</td>
-</tr>
-<tr>
-<td><code>created_at</code></td>
-<td>The UTC datetime the Lead was created.</td>
+<td><strong><code>created_at</code></strong></td>
+<td>The UTC datetime the resource was created.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
