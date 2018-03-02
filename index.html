@@ -201,7 +201,7 @@
       <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;jquery&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,6 +212,7 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="jquery">jquery</a>
               <a href="#" data-language-name="shell">shell</a>
         </div>
       <div id="toc" class="toc-list-h1">
@@ -420,6 +421,42 @@
 <span class="p">}</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">));</span>
+</code></pre><pre class="highlight plaintext"><code>var params = {
+  "first_name":     "Isaac",
+  "last_name":      "Newton",
+  "phone":          "0400000000",
+  "email":          "api@valiant.finance",
+  "months_trading": "12"
+}
+
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/leads",
+  type: "POST",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+  data: JSON.stringify(params),
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
 </code></pre><pre class="highlight shell tab-shell"><code>curl -iX POST <span class="se">\</span>
   https://mercury-summer.valiant.finance/api/v1/leads <span class="se">\</span>
   -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
@@ -588,6 +625,7 @@
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="jquery">jquery</a>
                 <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
