@@ -42,6 +42,45 @@ xhr.onreadystatechange = function () {
 xhr.send(JSON.stringify(params));
 ```
 
+```jquery
+var params = {
+  "first_name":     "Isaac",
+  "last_name":      "Newton",
+  "phone":          "0400000000",
+  "email":          "api@valiant.finance",
+  "months_trading": "12"
+}
+
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/leads",
+  type: "POST",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "<API_ID>",
+    "X-AUTH-SIGNED-KEY": "<API_SIGNED_KEY>",
+    "Content-Type":      "application/vnd.api+json"
+  },
+  data: JSON.stringify(params),
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+```
+
 ```shell
 curl -iX POST \
   https://mercury-summer.valiant.finance/api/v1/leads \

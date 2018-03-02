@@ -3,6 +3,7 @@ title: Valiant API
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
+  - jquery
   - shell
 
 toc_footers:
