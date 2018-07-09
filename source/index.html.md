@@ -13,6 +13,7 @@ includes:
   - introduction
   - authentication
   - leads
+  - options
   - errors
 
 search: false
