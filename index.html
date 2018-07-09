@@ -6,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Valiant API</title>
-
+    <link href="images/valiant-finance-icon.png" rel="icon" type="image/png" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -247,6 +247,23 @@
               </ul>
           </li>
           <li>
+            <a href="#options" class="toc-h1 toc-link" data-title="options">Options</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#loan-purpose" class="toc-h2 toc-link" data-title="loan-purpose">Loan Purpose</a>
+                  </li>
+                  <li>
+                    <a href="#credit-status" class="toc-h2 toc-link" data-title="credit-status">Credit Status</a>
+                  </li>
+                  <li>
+                    <a href="#business-performance" class="toc-h2 toc-link" data-title="business-performance">Business Performance</a>
+                  </li>
+                  <li>
+                    <a href="#australian-state" class="toc-h2 toc-link" data-title="australian-state">Australian State</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -265,7 +282,7 @@
         <h1 id='valiant-api'>🦁 Valiant API</h1><h2 id='introduction'>Introduction</h2>
 <p>Welcome to the Valiant API!</p>
 
-<p>The Valiant API is a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> API with predictable, resource-oriented URLs, and uses semantic HTTP response codes to indicate API errors. Our API supports <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">cross-origin resource sharing (CORS)</a>, allowing you to securely consume our API from any client-side web application. <a href="http://www.json.org/">JSON</a> is returned by all resource related API responses and all API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure"><code>HTTPS</code></a>. The API follows the <a href="http://jsonapi.org/"><code>json:api</code></a> specification for all requests and responses.</p>
+<p>The Valiant API is a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> API with predictable, resource-oriented URLs, and uses semantic HTTP response codes to indicate API errors. Our API supports <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">cross-origin resource sharing (CORS)</a>, allowing you to securely consume our API from any client-side web application. <a href="http://www.json.org/">JSON</a> is returned by all resource related API responses and all API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure"><code>HTTPS</code></a>. The API follows version 1.0 of the <a href="http://jsonapi.org/"><code>json:api</code></a> specification for all resource related requests and responses.</p>
 
 <aside class="notice">
   To get started with our API please send through a request to <a href="mailto:dev@valiant.finance">dev@valiant.finance</a> with your details, your company's details, and why you would like to use the API and we will onboard you.
@@ -484,13 +501,13 @@ $.ajax({
 <td><strong><code>first_name</code></strong></td>
 <td><code>string</code></td>
 <td style="text-align: center">✓</td>
-<td>Must be less than 255 characters long</td>
+<td>Must be less than 256 characters.</td>
 </tr>
 <tr>
 <td><strong><code>last_name</code></strong></td>
 <td><code>string</code></td>
 <td style="text-align: center">✓</td>
-<td>Must be less than 255 characters long</td>
+<td>Must be less than 256 characters.</td>
 </tr>
 <tr>
 <td><strong><code>phone</code></strong></td>
@@ -505,16 +522,154 @@ $.ajax({
 <td>Must conform to a valid email address.</td>
 </tr>
 <tr>
-<td><strong><code>requested_amount</code></strong></td>
+<td><strong><code>state</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#australian-state">australian_state</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>postal_code</code></strong></td>
 <td><code>integer</code></td>
 <td style="text-align: center"></td>
-<td>The amount of the loan being requested. Must be a value greater than 0 if provided.</td>
+<td>Must be an Australian postal code, an integer, and exactly 4 digits.</td>
+</tr>
+<tr>
+<td><strong><code>credit_status</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The credit status of the applicant. Must be an accepted value from the <a href="#credit-status">credit_status</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>abn</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Australian Business Number. Must be a string containing exactly 11 integers, and unlimited spaces.</td>
+</tr>
+<tr>
+<td><strong><code>company</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The company name. Must be less than 256 characters long.</td>
+</tr>
+<tr>
+<td><strong><code>business_performance</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#business-performance">business_performance</a> options endpoint.</td>
 </tr>
 <tr>
 <td><strong><code>months_trading</code></strong></td>
 <td><code>integer</code></td>
 <td style="text-align: center"></td>
-<td>The months the Lead&#39;s business has been trading. Must be a value greater than 0 if provided.</td>
+<td>The months the Lead&#39;s business has been trading. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>average_monthly_sales_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The average monthly sales amount. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>invoice_sales</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business has invoice customers. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>merchant_sales</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business accepts digital payments through a merchant facility. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>franchise</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business is a franchise. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>cloud_accounting</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business uses a cloud account provider for managing their financials. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>tax_up_to_date</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>tax_outstanding_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The amount currently outstanding with the Australian Taxation office if applicable. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>ato_payment_arrangement</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>previous_default</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses has has a previous credit default. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>default_liability_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The amount of the previous credit default if applicable. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>legal_action</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business has had legal action taken against it in the past due to a credit default. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>legal_action_description</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>A brief description of the legal action if applicable. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>director_guarantee_available</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a business director is able to provide a financial guarantee. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>prefers_speed_over_rate</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a faster time to funding is preferable over a lower rate. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>prefers_redrawable</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a redraw facility it preferable over a one off loan. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>requested_amount</code></strong></td>
+<td><code>integer</code></td>
+<td style="text-align: center"></td>
+<td>The amount of the loan being requested. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>loan_purpose</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#loan-purpose">loan_purpose</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>lead_description</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>An opportunity to provide further information about the loan request not covered by previous attributes. Must be less than 256 characters.</td>
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
@@ -570,7 +725,391 @@ $.ajax({
 <aside class="notice">
   Future releases of the Valiant API will allow the lookup of Leads using the returned <code>id</code> here as a reference. Be sure to store the returned <code>id</code> if you think you might want to look up the Lead at a later date.
 </aside>
-<h1 id='errors'>Errors</h1>
+<h1 id='options'>Options</h1>
+<p>🎛</p>
+
+<p>Our Options API is used to provide accepted values for a number of attributes across various resources.</p>
+
+<aside class="notice">
+  ⚠️ The values returned from these endpoints, and thus the accepted values, may change at anytime. We highly recommend using these endpoints to generate the list of valid options for your end user to select.
+</aside>
+<h2 id='loan-purpose'>Loan Purpose</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/loan_purpose</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of loan purpose label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>loan_purpose</code></td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/loan_purpose"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/loan_purpose",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/loan_purpose <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='credit-status'>Credit Status</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/credit_status</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of credit status label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-2'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>credit_status</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/credit_status"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/credit_status",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/credit_status <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='business-performance'>Business Performance</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/business_performance</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of business performance label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-3'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>business_performance</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/business_performance"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/business_performance",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/business_performance <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='australian-state'>Australian State</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/australian_state</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of Australian state label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-4'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>australian_state</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/australian_state"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/australian_state",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/australian_state <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='errors'>Errors</h1>
 <p>⚠️</p>
 
 <p>The Valiant API uses conventional <code>HTTP</code> response codes to indicate the the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"><code>HTTP</code> status</a> an API request.</p>
