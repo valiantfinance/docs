@@ -98,14 +98,37 @@ curl -iX POST \
 
 Below lists a detail of accepted parameters that can be posted to the endpoint as a part of a valid `JSON` payload. A number of attributes are required.
 
-| Attribute              | Type      | Required | Description                           |
-| ---------------------- | --------- | :------: | ------------------------------------- |
-| **`first_name`**       | `string`  | ✓        | Must be less than 255 characters long |
-| **`last_name`**        | `string`  | ✓        | Must be less than 255 characters long |
-| **`phone`**            | `string`  | ✓        | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
-| **`email`**            | `string`  | ✓        | Must conform to a valid email address. |
-| **`requested_amount`** | `integer` |          | The amount of the loan being requested. Must be a value greater than 0 if provided. |
-| **`months_trading`**   | `integer` |          | The months the Lead's business has been trading. Must be a value greater than 0 if provided. |
+| Attribute                           | Type      | Required | Description                           |
+| ----------------------------------  | --------- | :------: | ------------------------------------- |
+| **`first_name`**                    | `string`  | ✓        | Must be less than 256 characters. |
+| **`last_name`**                     | `string`  | ✓        | Must be less than 256 characters. |
+| **`phone`**                         | `string`  | ✓        | Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300. |
+| **`email`**                         | `string`  | ✓        | Must conform to a valid email address. |
+| **`state`**                         | `string`  |          | Must be an accepted value from the [australian_state](#australian-state) options endpoint. |  
+| **`postal_code`**                   | `integer` |          | Must be an Australian postal code, an integer, and exactly 4 digits. |
+| **`credit_status`**                 | `string`  |          | The credit status of the applicant. Must be an accepted value from the [credit_status](#credit-status) options endpoint. |
+| **`abn`**                           | `string`  |          | Australian Business Number. Must be a string containing exactly 11 integers, and unlimited spaces.   |
+| **`company`**                       | `string`  |          | The company name. Must be less than 256 characters long.      |
+| **`business_performance`**          | `string`  |          | Must be an accepted value from the [business_performance](#business-performance) options endpoint.      |
+| **`months_trading`**                | `integer` |          | The months the Lead's business has been trading. Must be a value greater than 0. |
+| **`average_monthly_sales_amount`**  | `string`  |          | The average monthly sales amount. Must be a value greater than 0. |
+| **`invoice_sales`**                 | `boolean` |          | Determines if the business has invoice customers. Must be true or false. |
+| **`merchant_sales`**                | `boolean` |          | Determines if the business accepts digital payments through a merchant facility. Must be true or false. |
+| **`franchise`**                     | `boolean` |          | Determines if the business is a franchise. Must be true or false. |
+| **`cloud_accounting`**              | `boolean` |          | Determines if the business uses a cloud account provider for managing their financials. Must be true or false. |
+| **`tax_up_to_date`**                | `boolean` |          | Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false. |
+| **`tax_outstanding_amount`**        | `string`  |          | The amount currently outstanding with the Australian Taxation office if applicable. Must be a value greater than 0. |
+| **`ato_payment_arrangement`**       | `boolean` |          | Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false. |
+| **`previous_default`**              | `boolean` |          | Determines if the businesses has has a previous credit default. Must be true or false. |
+| **`default_liability_amount`**      | `string`  |          | The amount of the previous credit default if applicable. Must be a value greater than 0. |
+| **`legal_action`**                  | `boolean` |          | Determines if the business has had legal action taken against it in the past due to a credit default. Must be true or false. |
+| **`legal_action_description`**      | `string`  |          | A brief description of the legal action if applicable. Must be less than 256 characters. |
+| **`director_guarantee_available`**  | `boolean` |          | Determines if a business director is able to provide a financial guarantee. Must be true or false. |
+| **`prefers_speed_over_rate`**       | `boolean` |          | Determines if a faster time to funding is preferable over a lower rate. Must be true or false. |
+| **`prefers_redrawable`**            | `boolean` |          | Determines if a redraw facility it preferable over a one off loan. Must be true or false. |
+| **`requested_amount`**              | `integer` |          | The amount of the loan being requested. Must be a value greater than 0. |
+| **`loan_purpose`**                  | `string`  |          | Must be an accepted value from the [loan_purpose](#loan-purpose) options endpoint.    |
+| **`lead_description`**              | `string`  |          | An opportunity to provide further information about the loan request not covered by previous attributes. Must be less than 256 characters.   |
 
 ### Response
 
