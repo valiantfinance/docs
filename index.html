@@ -250,16 +250,28 @@
             <a href="#options" class="toc-h1 toc-link" data-title="options">Options</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#loan-purpose" class="toc-h2 toc-link" data-title="loan-purpose">Loan Purpose</a>
+                    <a href="#accounting-software" class="toc-h2 toc-link" data-title="accounting-software">Accounting Software</a>
                   </li>
                   <li>
-                    <a href="#credit-status" class="toc-h2 toc-link" data-title="credit-status">Credit Status</a>
+                    <a href="#australian-state" class="toc-h2 toc-link" data-title="australian-state">Australian State</a>
                   </li>
                   <li>
                     <a href="#business-performance" class="toc-h2 toc-link" data-title="business-performance">Business Performance</a>
                   </li>
                   <li>
-                    <a href="#australian-state" class="toc-h2 toc-link" data-title="australian-state">Australian State</a>
+                    <a href="#credit-status" class="toc-h2 toc-link" data-title="credit-status">Credit Status</a>
+                  </li>
+                  <li>
+                    <a href="#entity-type" class="toc-h2 toc-link" data-title="entity-type">Entity Type</a>
+                  </li>
+                  <li>
+                    <a href="#equipment-class" class="toc-h2 toc-link" data-title="equipment-class">Equipment Class</a>
+                  </li>
+                  <li>
+                    <a href="#industry" class="toc-h2 toc-link" data-title="industry">Industry</a>
+                  </li>
+                  <li>
+                    <a href="#loan-purpose" class="toc-h2 toc-link" data-title="loan-purpose">Loan Purpose</a>
                   </li>
               </ul>
           </li>
@@ -549,7 +561,13 @@ $.ajax({
 <td><strong><code>company</code></strong></td>
 <td><code>string</code></td>
 <td style="text-align: center"></td>
-<td>The company name. Must be less than 256 characters long.</td>
+<td>The entity name. Must be less than 256 characters long.</td>
+</tr>
+<tr>
+<td><strong><code>entity_type</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The applying entity type. Must be an accepted value from the <a href="#entity-type">entity_type</a> options endpoint.</td>
 </tr>
 <tr>
 <td><strong><code>business_performance</code></strong></td>
@@ -568,6 +586,12 @@ $.ajax({
 <td><code>string</code></td>
 <td style="text-align: center"></td>
 <td>The average monthly sales amount. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>industry</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#industry">industry</a> options endpoint.</td>
 </tr>
 <tr>
 <td><strong><code>invoice_sales</code></strong></td>
@@ -592,6 +616,12 @@ $.ajax({
 <td><code>boolean</code></td>
 <td style="text-align: center"></td>
 <td>Determines if the business uses a cloud account provider for managing their financials. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>accounting_software</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#accounting-software">accounting_software</a> options endpoint.</td>
 </tr>
 <tr>
 <td><strong><code>tax_up_to_date</code></strong></td>
@@ -671,6 +701,48 @@ $.ajax({
 <td style="text-align: center"></td>
 <td>An opportunity to provide further information about the loan request not covered by previous attributes. Must be less than 256 characters.</td>
 </tr>
+<tr>
+<td><strong><code>equipment_class</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#equipment-class">equipment_class</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>new_equipment</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the equipment being purchased is new. Only applicable for equipment related loan purposes. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>utm_campaign</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) campaign value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_content</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) content value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_medium</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) medium value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_source</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) source value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_term</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) term value. Must be less than 256 characters.</td>
+</tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
 <blockquote>
@@ -733,7 +805,7 @@ $.ajax({
 <aside class="notice">
   ⚠️ The values returned from these endpoints, and thus the accepted values, may change at anytime. We highly recommend using these endpoints to generate the list of valid options for your end user to select.
 </aside>
-<h2 id='loan-purpose'>Loan Purpose</h2>
+<h2 id='accounting-software'>Accounting Software</h2>
 <table><thead>
 <tr>
 <th>Item</th>
@@ -742,7 +814,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td>Endpoint</td>
-<td><code>/api/v1/options/loan_purpose</code></td>
+<td><code>/api/v1/options/accounting_software</code></td>
 </tr>
 <tr>
 <td>Supported methods</td>
@@ -750,7 +822,7 @@ $.ajax({
 </tr>
 <tr>
 <td>Description</td>
-<td>Returns a collection of loan purpose label and value pairs.</td>
+<td>Returns a collection of accounting software label and value pairs.</td>
 </tr>
 </tbody></table>
 <h3 id='corresponding-attributes'>Corresponding Attributes</h3>
@@ -762,7 +834,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td><a href="#leads">Lead</a></td>
-<td><code>loan_purpose</code></td>
+<td><code>accounting_software</code></td>
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
@@ -771,7 +843,7 @@ $.ajax({
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/loan_purpose"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/accounting_software"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
@@ -786,7 +858,7 @@ $.ajax({
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
 </code></pre><pre class="highlight plaintext"><code>
 $.ajax({
-  url: "https://mercury-summer.valiant.finance/api/v1/options/loan_purpose",
+  url: "https://mercury-summer.valiant.finance/api/v1/options/accounting_software",
   type: "GET",
   contentType: "application/vnd.api+json",
   headers: {
@@ -813,7 +885,7 @@ $.ajax({
   }
 });
 </code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
-  https://mercury-summer.valiant.finance/api/v1/options/loan_purpose <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/accounting_software <span class="se">\</span>
   -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
@@ -824,10 +896,9 @@ $.ajax({
 
 <p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='credit-status'>Credit Status</h2>
+</span></code></pre><h2 id='australian-state'>Australian State</h2>
 <table><thead>
 <tr>
 <th>Item</th>
@@ -836,7 +907,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td>Endpoint</td>
-<td><code>/api/v1/options/credit_status</code></td>
+<td><code>/api/v1/options/australian_state</code></td>
 </tr>
 <tr>
 <td>Supported methods</td>
@@ -844,7 +915,7 @@ $.ajax({
 </tr>
 <tr>
 <td>Description</td>
-<td>Returns a collection of credit status label and value pairs.</td>
+<td>Returns a collection of Australian state label and value pairs.</td>
 </tr>
 </tbody></table>
 <h3 id='corresponding-attributes-2'>Corresponding Attributes</h3>
@@ -856,7 +927,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td><a href="#leads">Lead</a></td>
-<td><code>credit_status</code></td>
+<td><code>australian_state</code></td>
 </tr>
 </tbody></table>
 <h3 id='response-2'>Response</h3>
@@ -865,7 +936,7 @@ $.ajax({
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/credit_status"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/australian_state"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
@@ -880,7 +951,7 @@ $.ajax({
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
 </code></pre><pre class="highlight plaintext"><code>
 $.ajax({
-  url: "https://mercury-summer.valiant.finance/api/v1/options/credit_status",
+  url: "https://mercury-summer.valiant.finance/api/v1/options/australian_state",
   type: "GET",
   contentType: "application/vnd.api+json",
   headers: {
@@ -907,7 +978,7 @@ $.ajax({
   }
 });
 </code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
-  https://mercury-summer.valiant.finance/api/v1/options/credit_status <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/australian_state <span class="se">\</span>
   -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
@@ -918,8 +989,7 @@ $.ajax({
 
 <p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='business-performance'>Business Performance</h2>
 <table><thead>
@@ -1012,10 +1082,9 @@ $.ajax({
 
 <p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='australian-state'>Australian State</h2>
+</span></code></pre><h2 id='credit-status'>Credit Status</h2>
 <table><thead>
 <tr>
 <th>Item</th>
@@ -1024,7 +1093,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td>Endpoint</td>
-<td><code>/api/v1/options/australian_state</code></td>
+<td><code>/api/v1/options/credit_status</code></td>
 </tr>
 <tr>
 <td>Supported methods</td>
@@ -1032,7 +1101,7 @@ $.ajax({
 </tr>
 <tr>
 <td>Description</td>
-<td>Returns a collection of Australian state label and value pairs.</td>
+<td>Returns a collection of credit status label and value pairs.</td>
 </tr>
 </tbody></table>
 <h3 id='corresponding-attributes-4'>Corresponding Attributes</h3>
@@ -1044,7 +1113,7 @@ $.ajax({
 </thead><tbody>
 <tr>
 <td><a href="#leads">Lead</a></td>
-<td><code>australian_state</code></td>
+<td><code>credit_status</code></td>
 </tr>
 </tbody></table>
 <h3 id='response-4'>Response</h3>
@@ -1053,7 +1122,7 @@ $.ajax({
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/australian_state"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/credit_status"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
@@ -1068,7 +1137,7 @@ $.ajax({
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
 </code></pre><pre class="highlight plaintext"><code>
 $.ajax({
-  url: "https://mercury-summer.valiant.finance/api/v1/options/australian_state",
+  url: "https://mercury-summer.valiant.finance/api/v1/options/credit_status",
   type: "GET",
   contentType: "application/vnd.api+json",
   headers: {
@@ -1095,7 +1164,7 @@ $.ajax({
   }
 });
 </code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
-  https://mercury-summer.valiant.finance/api/v1/options/australian_state <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/credit_status <span class="se">\</span>
   -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
@@ -1106,8 +1175,379 @@ $.ajax({
 
 <p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='entity-type'>Entity Type</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/entity_type</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of entity type label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-5'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>entity_type</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/entity_type"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/entity_type",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/entity_type <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='equipment-class'>Equipment Class</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/equipment_class</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of equipment class label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-6'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>equipment_class</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/equipment_class"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/equipment_class",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/equipment_class <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='industry'>Industry</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/industry</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of industry label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-7'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>industry</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/industry"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/industry",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/industry <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='loan-purpose'>Loan Purpose</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/loan_purpose</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of loan purpose label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-8'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>loan_purpose</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-8'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/options/loan_purpose"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://mercury-summer.valiant.finance/api/v1/options/loan_purpose",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/options/loan_purpose <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <p>⚠️</p>
