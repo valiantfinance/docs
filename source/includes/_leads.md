@@ -108,14 +108,17 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 | **`postal_code`**                   | `integer` |          | Must be an Australian postal code, an integer, and exactly 4 digits. |
 | **`credit_status`**                 | `string`  |          | The credit status of the applicant. Must be an accepted value from the [credit_status](#credit-status) options endpoint. |
 | **`abn`**                           | `string`  |          | Australian Business Number. Must be a string containing exactly 11 integers, and unlimited spaces.   |
-| **`company`**                       | `string`  |          | The company name. Must be less than 256 characters long.      |
+| **`company`**                       | `string`  |          | The entity name. Must be less than 256 characters long.      |
+| **`entity_type`**                 | `string`  |          | The applying entity type. Must be an accepted value from the [entity_type](#entity-type) options endpoint. |
 | **`business_performance`**          | `string`  |          | Must be an accepted value from the [business_performance](#business-performance) options endpoint.      |
 | **`months_trading`**                | `integer` |          | The months the Lead's business has been trading. Must be a value greater than 0. |
 | **`average_monthly_sales_amount`**  | `string`  |          | The average monthly sales amount. Must be a value greater than 0. |
+| **`industry`**                      | `string`  |          | Must be an accepted value from the [industry](#industry) options endpoint.      |
 | **`invoice_sales`**                 | `boolean` |          | Determines if the business has invoice customers. Must be true or false. |
 | **`merchant_sales`**                | `boolean` |          | Determines if the business accepts digital payments through a merchant facility. Must be true or false. |
 | **`franchise`**                     | `boolean` |          | Determines if the business is a franchise. Must be true or false. |
 | **`cloud_accounting`**              | `boolean` |          | Determines if the business uses a cloud account provider for managing their financials. Must be true or false. |
+| **`accounting_software`**           | `string`  |          | Must be an accepted value from the [accounting_software](#accounting-software) options endpoint.      |
 | **`tax_up_to_date`**                | `boolean` |          | Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false. |
 | **`tax_outstanding_amount`**        | `string`  |          | The amount currently outstanding with the Australian Taxation office if applicable. Must be a value greater than 0. |
 | **`ato_payment_arrangement`**       | `boolean` |          | Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false. |
@@ -129,6 +132,13 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 | **`requested_amount`**              | `integer` |          | The amount of the loan being requested. Must be a value greater than 0. |
 | **`loan_purpose`**                  | `string`  |          | Must be an accepted value from the [loan_purpose](#loan-purpose) options endpoint.    |
 | **`lead_description`**              | `string`  |          | An opportunity to provide further information about the loan request not covered by previous attributes. Must be less than 256 characters.   |
+| **`equipment_class`**               | `string`  |          | Must be an accepted value from the [equipment_class](#equipment-class) options endpoint.    |
+| **`new_equipment`**                 | `boolean` |          | Determines if the equipment being purchased is new. Only applicable for equipment related loan purposes. Must be true or false. |
+| **`utm_campaign`**                  | `string`  |          | The Urchin tracking module (UTM) campaign value. Must be less than 256 characters.   |
+| **`utm_content`**                   | `string`  |          | The Urchin tracking module (UTM) content value. Must be less than 256 characters.   |
+| **`utm_medium`**                    | `string`  |          | The Urchin tracking module (UTM) medium value. Must be less than 256 characters.   |
+| **`utm_source`**                    | `string`  |          | The Urchin tracking module (UTM) source value. Must be less than 256 characters.   |
+| **`utm_term`**                      | `string`  |          | The Urchin tracking module (UTM) term value. Must be less than 256 characters.   |
 
 ### Response
 
