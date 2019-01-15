@@ -300,18 +300,34 @@
   To get started with our API please send through a request to <a href="mailto:dev@valiant.finance">dev@valiant.finance</a> with your details, your company's details, and why you would like to use the API and we will onboard you.
 </aside>
 <h2 id='sandbox'>Sandbox</h2>
-<p>As a part of on-boarding we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same however the root domain differs as detailed below.</p>
+<p>As a part of onboarding, we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same; however, the root domain differs as follows:</p>
 
 <ul>
 <li><strong>Sandbox</strong> – <a href="https://mercury-summer.valiant.finance/"><code>https://mercury-summer.valiant.finance/</code></a></li>
 <li><strong>Production</strong> – <a href="https://valiant.finance/"><code>https://valiant.finance/</code></a></li>
 </ul>
 
-<p>To test the API Sandbox we recommend using <a href="https://www.getpostman.com/">Postman</a>. We couldn&#39;t live without it! 📮</p>
+<p>To test the API Sandbox, we recommend using <a href="https://www.getpostman.com/">Postman</a>. We couldn&#39;t live without it! 📮</p>
+
+<p>To make life even easier, we have put together a ready-to-go collection of our API end-points. All you need to do is add your credentials, and you&#39;re ready to hit the ground running!</p>
+
+<p><a href="https://app.getpostman.com/run-collection/86abaac4a633772a1416"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p>To test the API endpoints in our Postman collection, simply:</p>
+
+<ol>
+<li>Add your <strong><code>X-AUTH-ID</code></strong> as the Current Value of the <code>id</code> variable;</li>
+<li>Add your <strong><code>X-AUTH-SIGNED-KEY</code></strong> as the Current Value of the <code>signed_key</code> variable; and</li>
+<li>Make sure you are testing the correct url - either <a href="https://mercury-summer.valiant.finance/"><code>https://mercury-summer.valiant.finance/</code></a> or <a href="https://valiant.finance/"><code>https://valiant.finance/</code></a>.</li>
+</ol>
+
+<p>Not sure how to generate the <strong><code>X-AUTH-ID</code></strong> or <strong><code>X-AUTH-SIGNED-KEY</code></strong> mentioned above? Take a look at the <em>Authentication</em> -&gt; <em>Headers</em> section below.</p>
+
+<p><img src="images/postman-credentials.png" alt="alt text" /></p>
 <h1 id='authentication'>Authentication</h1>
 <p>🔐</p>
 
-<p>Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API <code>uuid</code>,  <code>key</code> and <code>secret</code> which are the credentials that allow access to the API. These parameters are used to generate a set of <code>HTTP</code> headers that are used to authenticate requests.</p>
+<p>Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API <code>uuid</code>, <code>key</code> and <code>secret</code> which are the credentials that allow access to the API. These parameters are used to generate a set of <code>HTTP</code> headers that are used to authenticate requests.</p>
 
 <p>The content type of all calls made to the API are also verified. The <strong><code>Content-Type</code></strong> header in every request must be set to <code>application/vnd.api+json</code>.</p>
 
@@ -356,16 +372,16 @@
 <pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/authenticate"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span> <span class="s2">"&lt;API_ID&gt;"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">};</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
@@ -378,7 +394,7 @@
 <p>⚠️ Be sure to replace <code>&lt;API_ID&gt;</code> and <code>&lt;API_SIGNED_KEY&gt;</code> with your API credentials!</p>
 </blockquote>
 
-<p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.</p>
+<p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have been set correctly.</p>
 
 <table><thead>
 <tr>
