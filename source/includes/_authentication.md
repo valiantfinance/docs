@@ -2,7 +2,7 @@
 
 🔐
 
-Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API `uuid`,  `key` and `secret` which are the credentials that allow access to the API. These parameters are used to generate a set of `HTTP` headers that are used to authenticate requests.
+Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API `uuid`, `key` and `secret` which are the credentials that allow access to the API. These parameters are used to generate a set of `HTTP` headers that are used to authenticate requests.
 
 The content type of all calls made to the API are also verified. The **`Content-Type`** header in every request must be set to `application/vnd.api+json`.
 
@@ -28,8 +28,8 @@ A great resource that provides examples of generating `base64` hashes using `HMA
 
 ### Unauthorized & unverified requests
 
-* Requests made *without valid authentication headers* will return a `401 Unauthorized` status.
-* Requests made *without the correct content type* will return a `400 Bad Request` status.
+- Requests made _without valid authentication headers_ will return a `401 Unauthorized` status.
+- Requests made _without the correct content type_ will return a `400 Bad Request` status.
 
 ## Testing Authentication
 
@@ -39,16 +39,16 @@ A great resource that provides examples of generating `base64` hashes using `HMA
 xhr = new XMLHttpRequest();
 
 xhr.open("GET", "https://mercury-summer.valiant.finance/api/v1/authenticate");
-xhr.setRequestHeader("X-AUTH-ID",         "<API_ID>")
+xhr.setRequestHeader("X-AUTH-ID", "<API_ID>");
 xhr.setRequestHeader("X-AUTH-SIGNED-KEY", "<API_SIGNED_KEY>");
-xhr.setRequestHeader("Content-Type",      "application/vnd.api+json");
+xhr.setRequestHeader("Content-Type", "application/vnd.api+json");
 
-xhr.onreadystatechange = function () {
+xhr.onreadystatechange = function() {
   if (xhr.readyState == 4) {
     console.log(xhr.status);
     console.log(xhr.responseText);
   }
-}
+};
 
 xhr.send();
 ```
@@ -63,10 +63,10 @@ curl -iX GET \
 
 > ⚠️ Be sure to replace `<API_ID>` and `<API_SIGNED_KEY>` with your API credentials!
 
-We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have  been set correctly.
+We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have been set correctly.
 
-| Item              | Details                |
-| ----------------- | ---------------------- |
-| Endpoint          | `/api/v1/authenticate` |
-| Supported methods | `GET`                  |
+| Item              | Details                                                                                                                                                                                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Endpoint          | `/api/v1/authenticate`                                                                                                                                                                                                                                                                                   |
+| Supported methods | `GET`                                                                                                                                                                                                                                                                                                    |
 | Description       | Test if authentication headers are correctly set. If the authentication & content type headers are set correctly, the endpoint will return a `200 OK` status with an empty body. If authentication headers aren't set correctly the endpoint will return a `401 Unauthorized` header with an empty body. |

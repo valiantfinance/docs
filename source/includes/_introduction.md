@@ -10,9 +10,23 @@ The Valiant API is a [RESTful](http://en.wikipedia.org/wiki/Representational_Sta
 
 ## Sandbox
 
-As a part of on-boarding we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same however the root domain differs as detailed below.
+As a part of onboarding, we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same; however, the root domain differs as follows:
 
-* **Sandbox** – [`https://mercury-summer.valiant.finance/`](https://mercury-summer.valiant.finance/)
-* **Production** – [`https://valiant.finance/`](https://valiant.finance/)
+- **Sandbox** – [`https://mercury-summer.valiant.finance/`](https://mercury-summer.valiant.finance/)
+- **Production** – [`https://valiant.finance/`](https://valiant.finance/)
 
-To test the API Sandbox we recommend using [Postman](https://www.getpostman.com/). We couldn't live without it! 📮
+To test the API Sandbox, we recommend using [Postman](https://www.getpostman.com/). We couldn't live without it! 📮
+
+To make life even easier, we have put together a ready-to-go collection of our API end-points. All you need to do is add your credentials, and you're ready to hit the ground running!
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/86abaac4a633772a1416)
+
+To test the API endpoints in our Postman collection, simply:
+
+1. Add your **`X-AUTH-ID`** as the Current Value of the `id` variable;
+2. Add your **`X-AUTH-SIGNED-KEY`** as the Current Value of the `signed_key` variable; and
+3. Make sure you are testing the correct url - either [`https://mercury-summer.valiant.finance/`](https://mercury-summer.valiant.finance/) or [`https://valiant.finance/`](https://valiant.finance/).
+
+Not sure how to generate the **`X-AUTH-ID`** or **`X-AUTH-SIGNED-KEY`** mentioned above? Take a look at the _Authentication_ -> _Headers_ section below.
+
+![alt text](/images/postman-credentials.png)
