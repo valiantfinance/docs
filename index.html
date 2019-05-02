@@ -1,0 +1,1824 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Valiant API</title>
+    <link href="images/valiant-finance-icon.png" rel="icon" type="image/png" />
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;jquery&quot;,&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="jquery">jquery</a>
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#valiant-api" class="toc-h1 toc-link" data-title="valiant-api">🦁 Valiant API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction" class="toc-h2 toc-link" data-title="introduction">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="#status" class="toc-h2 toc-link" data-title="status">Status</a>
+                  </li>
+                  <li>
+                    <a href="#sandbox" class="toc-h2 toc-link" data-title="sandbox">Sandbox</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#testing-authentication" class="toc-h2 toc-link" data-title="testing-authentication">Testing Authentication</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#leads" class="toc-h1 toc-link" data-title="leads">Leads</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-lead" class="toc-h2 toc-link" data-title="create-lead">Create Lead</a>
+                  </li>
+                  <li>
+                    <a href="#read-lead" class="toc-h2 toc-link" data-title="read-lead">Read Lead</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#options" class="toc-h1 toc-link" data-title="options">Options</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#accounting-software" class="toc-h2 toc-link" data-title="accounting-software">Accounting Software</a>
+                  </li>
+                  <li>
+                    <a href="#australian-state" class="toc-h2 toc-link" data-title="australian-state">Australian State</a>
+                  </li>
+                  <li>
+                    <a href="#business-performance" class="toc-h2 toc-link" data-title="business-performance">Business Performance</a>
+                  </li>
+                  <li>
+                    <a href="#credit-status" class="toc-h2 toc-link" data-title="credit-status">Credit Status</a>
+                  </li>
+                  <li>
+                    <a href="#entity-type" class="toc-h2 toc-link" data-title="entity-type">Entity Type</a>
+                  </li>
+                  <li>
+                    <a href="#equipment-class" class="toc-h2 toc-link" data-title="equipment-class">Equipment Class</a>
+                  </li>
+                  <li>
+                    <a href="#industry" class="toc-h2 toc-link" data-title="industry">Industry</a>
+                  </li>
+                  <li>
+                    <a href="#loan-purpose" class="toc-h2 toc-link" data-title="loan-purpose">Loan Purpose</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-status-codes" class="toc-h2 toc-link" data-title="http-status-codes">HTTP Status Codes</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li>Made in Sydney, Australia by <a href="https://valiant.finance/">Valiant</a> 🇦🇺</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='valiant-api'>🦁 Valiant API</h1><h2 id='introduction'>Introduction</h2>
+<p>Welcome to the Valiant API!</p>
+
+<p>The Valiant API is a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> API with predictable, resource-oriented URLs, and uses semantic HTTP response codes to indicate API errors. Our API supports <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">cross-origin resource sharing (CORS)</a>, allowing you to securely consume our API from any client-side web application. <a href="http://www.json.org/">JSON</a> is returned by all resource related API responses and all API requests must be made over <a href="http://en.wikipedia.org/wiki/HTTP_Secure"><code>HTTPS</code></a>. The API follows version 1.0 of the <a href="http://jsonapi.org/"><code>json:api</code></a> specification for all resource related requests and responses.</p>
+
+<aside class="notice">
+  To get started with our API please send through a request to <a href="mailto:dev@valiant.finance">dev@valiant.finance</a> with your details, your company's details, and why you would like to use the API and we will onboard you.
+</aside>
+<h2 id='status'>Status</h2>
+<p>🚦 The status of our producton and sandbox APIs are viewable on our <a href="https://www.valiantstatus.com" target="_blank">Valiant status page.</a></p>
+<h2 id='sandbox'>Sandbox</h2>
+<p>As a part of onboarding, we will provide both a set of Sandbox and Production API credentials. All endpoint paths for both APIs are the same; however, the root domain differs as follows:</p>
+
+<ul>
+<li><strong>Sandbox</strong> – <a href="https://mercury-summer.valiant.finance/"><code>https://mercury-summer.valiant.finance/</code></a></li>
+<li><strong>Production</strong> – <a href="https://valiant.finance/"><code>https://valiant.finance/</code></a></li>
+</ul>
+
+<p>To test the API Sandbox, we recommend using <a href="https://www.getpostman.com/">Postman</a>. We couldn&#39;t live without it! 📮</p>
+
+<p>To make life even easier, we have put together a ready-to-go collection of our API end-points. All you need to do is add your credentials, and you&#39;re ready to hit the ground running!</p>
+
+<p><a href="https://app.getpostman.com/run-collection/86abaac4a633772a1416"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p>To test the API endpoints in our Postman collection, simply:</p>
+
+<ol>
+<li>Add your <strong><code>X-AUTH-ID</code></strong> as the current value of the <code>id</code> variable;</li>
+<li>Add your <strong><code>X-AUTH-SIGNED-KEY</code></strong> as the current value of the <code>signed_key</code> variable; and</li>
+<li>Ensure you are testing the correct url - either our sandbox <a href="https://mercury-summer.valiant.finance/"><code>https://mercury-summer.valiant.finance/</code></a> or production <a href="https://valiant.finance/"><code>https://valiant.finance/</code></a>.</li>
+</ol>
+
+<p>Not sure how to generate the <strong><code>X-AUTH-ID</code></strong> or <strong><code>X-AUTH-SIGNED-KEY</code></strong> mentioned above? Take a look at the <em>Authentication</em> -&gt; <em>Headers</em> section below.</p>
+
+<p><img src="images/postman-credentials.png" alt="alt text" /></p>
+<h1 id='authentication'>Authentication</h1>
+<p>🔐</p>
+
+<p>Security is paramount at Valiant so all calls made to our API are authenticated. Once you have been given access to the API, you will receive a Valiant API <code>uuid</code>, <code>key</code> and <code>secret</code> which are the credentials that allow access to the API. These parameters are used to generate a set of <code>HTTP</code> headers that are used to authenticate requests.</p>
+
+<p>The content type of all calls made to the API are also verified. The <strong><code>Content-Type</code></strong> header in every request must be set to <code>application/vnd.api+json</code>.</p>
+
+<aside class="warning">
+  ⚠️ Be sure to never expose your API <code>key</code>, <code>secret</code> or <code>signed key</code> in any publicly accessible areas like GitHub, client-side code or website logs!
+</aside>
+<h2 id='headers'>Headers</h2>
+<p>We authenticate and verify all API requests via three HTTP headers that are required to be set in all API requests.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>X-AUTH-ID</code></strong></td>
+<td>Your API client <code>id</code> that is a <code>uuid</code> provided once your API account has been established.</td>
+</tr>
+<tr>
+<td><strong><code>X-AUTH-SIGNED-KEY</code></strong></td>
+<td>A <code>base64</code> string generated by <code>HMAC-SHA256</code> signing your API <code>key</code> with your API <code>secret</code>.</td>
+</tr>
+<tr>
+<td><strong><code>Content-Type</code></strong></td>
+<td>All requests must be set to <code>application/vnd.api+json</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='generating-your-signed-key'>Generating your signed key</h3>
+<p>To generate your <code>signed key</code> for the <strong><code>X-AUTH-SIGNED-KEY</code></strong> header you must generate a <code>base64</code> string of <code>HMAC-SHA256</code> signing your API <code>key</code> with your API <code>secret</code>.</p>
+
+<p>A great resource that provides examples of generating <code>base64</code> hashes using <code>HMAC-SHA256</code> in a variety of different languages can be found <a href="https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/">here</a>.</p>
+<h3 id='unauthorized-amp-unverified-requests'>Unauthorized &amp; unverified requests</h3>
+<ul>
+<li>Requests made <em>without valid authentication headers</em> will return a <code>401 Unauthorized</code> status.</li>
+<li>Requests made <em>without the correct content type</em> will return a <code>400 Bad Request</code> status.</li>
+</ul>
+<h2 id='testing-authentication'>Testing Authentication</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://mercury-summer.valiant.finance/api/v1/authenticate"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span> <span class="s2">"&lt;API_ID&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -iX GET <span class="se">\</span>
+  https://mercury-summer.valiant.finance/api/v1/authenticate <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>⚠️ Be sure to replace <code>&lt;API_ID&gt;</code> and <code>&lt;API_SIGNED_KEY&gt;</code> with your API credentials!</p>
+</blockquote>
+
+<p>We have created an API endpoint which an empty request can be sent to in order to check if authentication headers have been set correctly.</p>
+
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/authenticate</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Test if authentication headers are correctly set. If the authentication &amp; content type headers are set correctly, the endpoint will return a <code>200 OK</code> status with an empty body. If authentication headers aren&#39;t set correctly the endpoint will return a <code>401 Unauthorized</code> header with an empty body.</td>
+</tr>
+</tbody></table>
+<h1 id='leads'>Leads</h1>
+<p>🏅</p>
+
+<p>Our Lead API allows third parties to create and read via the API.</p>
+<h2 id='create-lead'>Create Lead</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/leads</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>POST</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Submits a Lead with the given details to Valiant.</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">first_name</span><span class="p">:</span> <span class="s2">"Isaac"</span><span class="p">,</span>
+  <span class="na">last_name</span><span class="p">:</span> <span class="s2">"Newton"</span><span class="p">,</span>
+  <span class="na">phone</span><span class="p">:</span> <span class="s2">"0400000000"</span><span class="p">,</span>
+  <span class="na">email</span><span class="p">:</span> <span class="s2">"api@valiant.finance"</span><span class="p">,</span>
+  <span class="na">months_trading</span><span class="p">:</span> <span class="s2">"12"</span>
+<span class="p">};</span>
+
+<span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/leads"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span> <span class="s2">"&lt;API_ID&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">params</span><span class="p">));</span>
+</code></pre><pre class="highlight plaintext"><code>var params = {
+  "first_name":     "Isaac",
+  "last_name":      "Newton",
+  "phone":          "0400000000",
+  "email":          "api@valiant.finance",
+  "months_trading": "12"
+}
+
+$.ajax({
+  url: "https://valiant.finance/api/v1/leads",
+  type: "POST",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+  data: JSON.stringify(params),
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX POST <span class="se">\</span>
+  https://valiant.finance/api/v1/leads <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "first_name":     "Isaac",
+        "last_name":      "Newton",
+        "email":          "api@valiant.finance",
+        "phone":          "0400000000",
+        "months_trading": "12"
+      }'</span>
+</code></pre>
+<p>Below lists a detail of accepted parameters that can be posted to the endpoint as a part of a valid <code>JSON</code> payload. A number of attributes are required.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th style="text-align: center">Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>first_name</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center">✓</td>
+<td>Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>last_name</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center">✓</td>
+<td>Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>phone</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center">✓</td>
+<td>Must be an Australian phone number and can begin with all valid local area codes, 1800 or 1300.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Ruby: <code>/\A <br/>\A[(]?(0&#124;+?61)\s*([23478])[)]?\s*(([\s-]<em>\d){8})\s</em>\z&#124;<br/>\A[(]?(1300&#124;1800)[)]?\s*(([\s-]*\d){6})\s*\z<br/>\z/x</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Javascript: <code>/^^[(]?(0&#124;+?61)\s*([23478])[)]?\s*(([\s-]<em>\d){8})\s</em>\$&#124;^[(]?(1300&#124;1800)[)]?\s*(([\s-]*\d){6})\s*\$\$/</code></td>
+</tr>
+<tr>
+<td><strong><code>email</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center">✓</td>
+<td>Must conform to a valid email address.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Ruby: <br/><code>/\A((?:\w[-+.]?)+)@([\w-]+(.[a-z]+)+)\z/</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Javascript: <br/><code>/^((?:\w[-+.]?)+)@([\w-]+(.[a-z]+)+)\$/</code></td>
+</tr>
+<tr>
+<td><strong><code>state</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#australian-state">australian_state</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>postal_code</code></strong></td>
+<td><code>integer</code></td>
+<td style="text-align: center"></td>
+<td>Must be an Australian postal code, an integer, and exactly 4 digits.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Ruby: <br/><code>/\A\d{4}\z/</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Javascript: <br/><code>/^\d{4}\$/</code></td>
+</tr>
+<tr>
+<td><strong><code>credit_status</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The credit status of the applicant. Must be an accepted value from the <a href="#credit-status">credit_status</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>abn</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Australian Business Number. Must be a string containing exactly 11 integers, and unlimited spaces.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Ruby: <br/><code>/\A(?:\d\s?){11}\z/</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td style="text-align: center"></td>
+<td>Must follow the following regex format for Javascript: <br/><code>/^(?:\d\s?){11}\$/</code></td>
+</tr>
+<tr>
+<td><strong><code>company</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The entity name. Must be less than 256 characters long.</td>
+</tr>
+<tr>
+<td><strong><code>entity_type</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The applying entity type. Must be an accepted value from the <a href="#entity-type">entity_type</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>business_performance</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#business-performance">business_performance</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>months_trading</code></strong></td>
+<td><code>integer</code></td>
+<td style="text-align: center"></td>
+<td>The months the Lead&#39;s business has been trading. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>average_monthly_sales_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The average monthly sales amount. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>industry</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#industry">industry</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>invoice_sales</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business has invoice customers. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>merchant_sales</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business accepts digital payments through a merchant facility. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>franchise</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business is a franchise. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>cloud_accounting</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business uses a cloud account provider for managing their financials. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>accounting_software</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#accounting-software">accounting_software</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>tax_up_to_date</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>tax_outstanding_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The amount currently outstanding with the Australian Taxation office if applicable. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>ato_payment_arrangement</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses reporting obligations are up to date with the Australian Taxation Office. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>previous_default</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the businesses has has a previous credit default. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>default_liability_amount</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The amount of the previous credit default if applicable. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>legal_action</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the business has had legal action taken against it in the past due to a credit default. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>legal_action_description</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>A brief description of the legal action if applicable. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>director_guarantee_available</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a business director is able to provide a financial guarantee. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>prefers_speed_over_rate</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a faster time to funding is preferable over a lower rate. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>prefers_redrawable</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if a redraw facility it preferable over a one off loan. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>requested_amount</code></strong></td>
+<td><code>integer</code></td>
+<td style="text-align: center"></td>
+<td>The amount of the loan being requested. Must be a value greater than 0.</td>
+</tr>
+<tr>
+<td><strong><code>loan_purpose</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#loan-purpose">loan_purpose</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>lead_description</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>An opportunity to provide further information about the loan request not covered by previous attributes. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>equipment_class</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>Must be an accepted value from the <a href="#equipment-class">equipment_class</a> options endpoint.</td>
+</tr>
+<tr>
+<td><strong><code>new_equipment</code></strong></td>
+<td><code>boolean</code></td>
+<td style="text-align: center"></td>
+<td>Determines if the equipment being purchased is new. Only applicable for equipment related loan purposes. Must be true or false.</td>
+</tr>
+<tr>
+<td><strong><code>utm_campaign</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) campaign value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_content</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) content value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_medium</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) medium value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_source</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) source value. Must be less than 256 characters.</td>
+</tr>
+<tr>
+<td><strong><code>utm_term</code></strong></td>
+<td><code>string</code></td>
+<td style="text-align: center"></td>
+<td>The Urchin tracking module (UTM) term value. Must be less than 256 characters.</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="p">:</span><span class="err">data</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="p">:</span><span class="err">id</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"18a14b74-f85c-46a7-bc64-1b963e1ea844"</span><span class="p">,</span><span class="w">
+              </span><span class="p">:</span><span class="err">type</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">:</span><span class="err">lead</span><span class="p">,</span><span class="w">
+        </span><span class="p">:</span><span class="err">attributes</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                     </span><span class="p">:</span><span class="err">abn</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"46832613142"</span><span class="p">,</span><span class="w">
+                     </span><span class="p">:</span><span class="err">accounting_software</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"xero"</span><span class="p">,</span><span class="w">
+                 </span><span class="p">:</span><span class="err">ato_payment_arrangement</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="p">:</span><span class="err">average_monthly_sales_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+                    </span><span class="p">:</span><span class="err">business_performance</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"bad"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">cloud_accounting</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                 </span><span class="p">:</span><span class="err">company</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"The Wind Waker"</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">credit_status</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"great"</span><span class="p">,</span><span class="w">
+                </span><span class="p">:</span><span class="err">default_liability_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="p">:</span><span class="err">director_guarantee_available</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">email</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"1bob@prosacco.co"</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">entity_type</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"IND"</span><span class="p">,</span><span class="w">
+                         </span><span class="p">:</span><span class="err">equipment_class</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">first_name</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Fairies"</span><span class="p">,</span><span class="w">
+                               </span><span class="p">:</span><span class="err">franchise</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="p">:</span><span class="err">industry</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"hospitality"</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">industry_group</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"H440"</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">invoice_sales</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                               </span><span class="p">:</span><span class="err">last_name</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Orca"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">lead_description</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"blah"</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">legal_action</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="p">:</span><span class="err">legal_action_description</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"n.a."</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">loan_purpose</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">loan_sub_purpose</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"inventory"</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">merchant_sales</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">months_trading</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">new_equipment</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">phone</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"0400 214 072"</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">postal_code</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"2010"</span><span class="p">,</span><span class="w">
+                      </span><span class="p">:</span><span class="err">prefers_redrawable</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                 </span><span class="p">:</span><span class="err">prefers_speed_over_rate</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">previous_default</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">requested_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mf">50000.0</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">state</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">
+                  </span><span class="p">:</span><span class="err">tax_outstanding_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">tax_up_to_date</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">utm_campaign</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">utm_content</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">utm_medium</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">utm_source</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                </span><span class="p">:</span><span class="err">utm_term</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">created_at</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">2019-05-01</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">16</span><span class="w"> </span><span class="err">UTC</span><span class="p">,</span><span class="w">
+                                  </span><span class="p">:</span><span class="err">status</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">updated_at</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">2019-05-01</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">16</span><span class="w"> </span><span class="err">UTC</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+             </span><span class="p">:</span><span class="err">links</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="p">:</span><span class="err">self</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>If a request is successful, a <a href="http://jsonapi.org/"><code>json:api</code></a> compliant <code>JSON</code> response will be delivered with all resource related information in a <code>data</code> key.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>id</code></strong></td>
+<td>A unique identifier in <code>uuid</code> format generated for the resource by Valiant.</td>
+</tr>
+<tr>
+<td><strong><code>type</code></strong></td>
+<td>The name of the resource called on.</td>
+</tr>
+<tr>
+<td><strong><code>attributes</code></strong></td>
+<td>A map with values of resource attributes.</td>
+</tr>
+</tbody></table>
+<h2 id='read-lead'>Read Lead</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/leads/:id</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Request the status of a Lead via Lead ID.</td>
+</tr>
+</tbody></table>
+<h3 id='example-request'>Example request</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844 <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span> <span class="se">\</span>
+</code></pre><h3 id='response-2'>Response</h3>
+<p>If a request is successful, a <a href="http://jsonapi.org/"><code>json:api</code></a> compliant <code>JSON</code> response will be delivered with all resource related information in a <code>data</code> key.</p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code>id</code></strong></td>
+<td>A unique identifier in <code>uuid</code> format generated for the resource by Valiant.</td>
+</tr>
+<tr>
+<td><strong><code>type</code></strong></td>
+<td>The name of the resource called on.</td>
+</tr>
+<tr>
+<td><strong><code>attributes</code></strong></td>
+<td>A map with values of resource attributes.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="p">:</span><span class="err">data</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="p">:</span><span class="err">id</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"18a14b74-f85c-46a7-bc64-1b963e1ea844"</span><span class="p">,</span><span class="w">
+              </span><span class="p">:</span><span class="err">type</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">:</span><span class="err">lead</span><span class="p">,</span><span class="w">
+        </span><span class="p">:</span><span class="err">attributes</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                     </span><span class="p">:</span><span class="err">abn</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"46832613142"</span><span class="p">,</span><span class="w">
+                     </span><span class="p">:</span><span class="err">accounting_software</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"xero"</span><span class="p">,</span><span class="w">
+                 </span><span class="p">:</span><span class="err">ato_payment_arrangement</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="p">:</span><span class="err">average_monthly_sales_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+                    </span><span class="p">:</span><span class="err">business_performance</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"bad"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">cloud_accounting</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                 </span><span class="p">:</span><span class="err">company</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"The Wind Waker"</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">credit_status</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"great"</span><span class="p">,</span><span class="w">
+                </span><span class="p">:</span><span class="err">default_liability_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="p">:</span><span class="err">director_guarantee_available</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">email</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"1bob@prosacco.co"</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">entity_type</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"IND"</span><span class="p">,</span><span class="w">
+                         </span><span class="p">:</span><span class="err">equipment_class</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">first_name</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Fairies"</span><span class="p">,</span><span class="w">
+                               </span><span class="p">:</span><span class="err">franchise</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                </span><span class="p">:</span><span class="err">industry</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"hospitality"</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">industry_group</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"H440"</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">invoice_sales</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                               </span><span class="p">:</span><span class="err">last_name</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Orca"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">lead_description</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"blah"</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">legal_action</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="p">:</span><span class="err">legal_action_description</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"n.a."</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">loan_purpose</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">loan_sub_purpose</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"inventory"</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">merchant_sales</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">months_trading</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+                           </span><span class="p">:</span><span class="err">new_equipment</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">phone</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"0400 214 072"</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">postal_code</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"2010"</span><span class="p">,</span><span class="w">
+                      </span><span class="p">:</span><span class="err">prefers_redrawable</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                 </span><span class="p">:</span><span class="err">prefers_speed_over_rate</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">previous_default</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="p">:</span><span class="err">requested_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mf">50000.0</span><span class="p">,</span><span class="w">
+                                   </span><span class="p">:</span><span class="err">state</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">
+                  </span><span class="p">:</span><span class="err">tax_outstanding_amount</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                          </span><span class="p">:</span><span class="err">tax_up_to_date</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="p">:</span><span class="err">utm_campaign</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                             </span><span class="p">:</span><span class="err">utm_content</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">utm_medium</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">utm_source</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                </span><span class="p">:</span><span class="err">utm_term</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">created_at</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">2019-05-01</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">16</span><span class="w"> </span><span class="err">UTC</span><span class="p">,</span><span class="w">
+                                  </span><span class="p">:</span><span class="err">status</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+                              </span><span class="p">:</span><span class="err">updated_at</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="mi">2019-05-01</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">16</span><span class="w"> </span><span class="err">UTC</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+             </span><span class="p">:</span><span class="err">links</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="p">:</span><span class="err">self</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">"https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='options'>Options</h1>
+<p>🎛</p>
+
+<p>Our Options API is used to provide accepted values for a number of attributes across various resources.</p>
+
+<aside class="notice">
+  ⚠️ The values returned from these endpoints, and thus the accepted values, may change at anytime. We highly recommend using these endpoints to generate the list of valid options for your end user to select.
+</aside>
+<h2 id='accounting-software'>Accounting Software</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/accounting_software</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of accounting software label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>accounting_software</code></td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/accounting_software"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/accounting_software",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/accounting_software <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='australian-state'>Australian State</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/australian_state</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of Australian state label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-2'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>australian_state</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/australian_state"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/australian_state",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/australian_state <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='business-performance'>Business Performance</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/business_performance</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of business performance label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-3'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>business_performance</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/business_performance"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/business_performance",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/business_performance <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='credit-status'>Credit Status</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/credit_status</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of credit status label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-4'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>credit_status</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/credit_status"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/credit_status",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/credit_status <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='entity-type'>Entity Type</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/entity_type</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of entity type label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-5'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>entity_type</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/entity_type"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/entity_type",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/entity_type <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='equipment-class'>Equipment Class</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/equipment_class</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of equipment class label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-6'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>equipment_class</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/equipment_class"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/equipment_class",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/equipment_class <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='industry'>Industry</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/industry</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of industry label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-7'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>industry</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/industry"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/industry",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/industry <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='loan-purpose'>Loan Purpose</h2>
+<table><thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/api/v1/options/loan_purpose</code></td>
+</tr>
+<tr>
+<td>Supported methods</td>
+<td><code>GET</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Returns a collection of loan purpose label and value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='corresponding-attributes-8'>Corresponding Attributes</h3>
+<table><thead>
+<tr>
+<th>Resource</th>
+<th>Attribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#leads">Lead</a></td>
+<td><code>loan_purpose</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-8'>Response</h3>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://valiant.finance/api/v1/options/loan_purpose"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-ID"</span><span class="p">,</span>         <span class="s2">"&lt;API_ID&gt;"</span><span class="p">)</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"X-AUTH-SIGNED-KEY"</span><span class="p">,</span> <span class="s2">"&lt;API_SIGNED_KEY&gt;"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span>      <span class="s2">"application/vnd.api+json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhr</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre><pre class="highlight plaintext"><code>
+$.ajax({
+  url: "https://valiant.finance/api/v1/options/loan_purpose",
+  type: "GET",
+  contentType: "application/vnd.api+json",
+  headers: {
+    "X-AUTH-ID":         "&lt;API_ID&gt;",
+    "X-AUTH-SIGNED-KEY": "&lt;API_SIGNED_KEY&gt;",
+    "Content-Type":      "application/vnd.api+json"
+  },
+
+  beforeSend: function(data) {
+    console.log("beforeSend");
+  },
+
+  success: function(data) {
+    console.log("success");
+    console.log(data);
+  },
+
+  error: function(data) {
+    console.log("error");
+  },
+
+  complete: function(data) {
+    console.log("complete!");
+  }
+});
+</code></pre><pre class="highlight shell"><code>curl -iX GET <span class="se">\</span>
+  https://valiant.finance/api/v1/options/loan_purpose <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-ID:         &lt;API_ID&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"X-AUTH-SIGNED-KEY: &lt;API_SIGNED_KEY&gt;"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type:      application/vnd.api+json"</span>
+</code></pre>
+<blockquote>
+<p>Example successful response</p>
+</blockquote>
+
+<p>If a request is successful, a JSON response will include a collection of valid options, with an option in the format <code>{ &quot;label&quot;: &quot;Example Label&quot;, &quot;value&quot;: &quot;example_value&quot; }</code> where the label component can be used for display purposes, and the value component as the accepted value.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Label"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='errors'>Errors</h1>
+<p>⚠️</p>
+
+<p>The Valiant API uses conventional <code>HTTP</code> response codes to indicate the the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"><code>HTTP</code> status</a> an API request.</p>
+
+<ul>
+<li>HTTP status codes in the <code>2xx</code> range indicate <strong>success 🎉</strong></li>
+<li>HTTP status codes in the <code>4xx</code> range indicate an <strong>error</strong> given the request 🚫
+
+<ul>
+<li>e.g., the request was unauthorized, a required parameter was omitted, a validation failed, etc.</li>
+</ul></li>
+<li>HTTP status codes in the <code>5xx</code> range indicate an <strong>internal server error</strong> on the Valiant side 💥</li>
+</ul>
+<h3 id='http-status-codes'>HTTP Status Codes</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>200 OK</code></td>
+<td>Everything worked as expected.</td>
+</tr>
+<tr>
+<td><code>201 Created</code></td>
+<td>The resource was created successfully.</td>
+</tr>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>The request was unacceptable, often due to missing a required parameter.</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>No valid authentication headers found.</td>
+</tr>
+<tr>
+<td><code>402 Request Failed</code></td>
+<td>The parameters were valid but the request failed.</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>The requested resource doesn&#39;t exist.</td>
+</tr>
+<tr>
+<td><code>500 Server Error</code></td>
+<td>Something went wrong on Valiant&#39;s end.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="jquery">jquery</a>
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
