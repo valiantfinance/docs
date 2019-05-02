@@ -11,7 +11,7 @@ The Valiant API is a [RESTful](http://en.wikipedia.org/wiki/Representational_Sta
 
 ## Status
 
-🚦 The status of our producton and sandbox APIs are viewable on our <a href="https://www.valiantstatus.com" target="_blank">status page.</a>
+🚦 The status of our producton and sandbox APIs are viewable on our <a href="https://www.valiantstatus.com" target="_blank">Valiant status page.</a>
 
 
 ## Sandbox
