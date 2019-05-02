@@ -2,9 +2,9 @@
 
 🏅
 
-Our Lead API allows third parties to directly submit Leads to Valiant via the API.
+Our Lead API allows third parties to create and read via the API.
 
-## Create a Lead
+## Create Lead
 
 | Item              | Details                                           |
 | ----------------- | ------------------------------------------------- |
@@ -27,7 +27,7 @@ var params = {
 
 xhr = new XMLHttpRequest();
 
-xhr.open("POST", "https://mercury-summer.valiant.finance/api/v1/leads");
+xhr.open("POST", "https://valiant.finance/api/v1/leads");
 xhr.setRequestHeader("X-AUTH-ID", "<API_ID>");
 xhr.setRequestHeader("X-AUTH-SIGNED-KEY", "<API_SIGNED_KEY>");
 xhr.setRequestHeader("Content-Type", "application/vnd.api+json");
@@ -52,7 +52,7 @@ var params = {
 }
 
 $.ajax({
-  url: "https://mercury-summer.valiant.finance/api/v1/leads",
+  url: "https://valiant.finance/api/v1/leads",
   type: "POST",
   contentType: "application/vnd.api+json",
   headers: {
@@ -81,9 +81,9 @@ $.ajax({
 });
 ```
 
-```shell
+```bash
 curl -iX POST \
-  https://mercury-summer.valiant.finance/api/v1/leads \
+  https://valiant.finance/api/v1/leads \
   -H "X-AUTH-ID:         <API_ID>" \
   -H "X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>" \
   -H "Content-Type:      application/vnd.api+json" \
@@ -154,13 +154,59 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 
 ```json
 {
-  "data": {
-    "id": "6bbba93f-48c4-413b-88cf-de6436ccb20c",
-    "type": "leads",
-    "attributes": {
-      "created_at": "2017-08-17T00:00:00.001Z"
+    :data => {
+                :id => "18a14b74-f85c-46a7-bc64-1b963e1ea844",
+              :type => :lead,
+        :attributes => {
+                                     :abn => "46832613142",
+                     :accounting_software => "xero",
+                 :ato_payment_arrangement => true,
+            :average_monthly_sales_amount => 100000,
+                    :business_performance => "bad",
+                        :cloud_accounting => true,
+                                 :company => "The Wind Waker",
+                           :credit_status => "great",
+                :default_liability_amount => 0,
+            :director_guarantee_available => true,
+                                   :email => "1bob@prosacco.co",
+                             :entity_type => "IND",
+                         :equipment_class => "",
+                              :first_name => "Fairies",
+                               :franchise => true,
+                                :industry => "hospitality",
+                          :industry_group => "H440",
+                           :invoice_sales => true,
+                               :last_name => "Orca",
+                        :lead_description => "blah",
+                            :legal_action => false,
+                :legal_action_description => "n.a.",
+                            :loan_purpose => "general",
+                        :loan_sub_purpose => "inventory",
+                          :merchant_sales => true,
+                          :months_trading => 24,
+                           :new_equipment => "",
+                                   :phone => "0400 214 072",
+                             :postal_code => "2010",
+                      :prefers_redrawable => true,
+                 :prefers_speed_over_rate => true,
+                        :previous_default => false,
+                        :requested_amount => 50000.0,
+                                   :state => "NSW",
+                  :tax_outstanding_amount => 0,
+                          :tax_up_to_date => true,
+                            :utm_campaign => "",
+                             :utm_content => "",
+                              :utm_medium => "",
+                              :utm_source => "",
+                                :utm_term => "",
+                              :created_at => 2019-05-01 00:07:16 UTC,
+                                  :status => "Received",
+                              :updated_at => 2019-05-01 00:07:16 UTC
+        },
+             :links => {
+            :self => "https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"
+        }
     }
-  }
 }
 ```
 
@@ -169,17 +215,100 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
 | Data             | Description                                                                 |
 | ---------------- | --------------------------------------------------------------------------- |
 | **`id`**         | A unique identifier in `uuid` format generated for the resource by Valiant. |
-| **`type`**       | Pluralized name of the resource called on.                                  |
+| **`type`**       | The name of the resource called on.                                         |
 | **`attributes`** | A map with values of resource attributes.                                   |
 
-### Attributes
 
-The values of attributes included in the `attributes` hash are:
+## Read Lead
 
-| Attribute        | Description                                |
-| ---------------- | ------------------------------------------ |
-| **`created_at`** | The UTC datetime the resource was created. |
+| Item              | Details                                           |
+| ----------------- | ------------------------------------------------- |
+| Endpoint          | `/api/v1/leads/:id`                               |
+| Supported methods | `GET`                                             |
+| Description       | Request the status of a Lead via Lead ID.         |
 
-<aside class="notice">
-  Future releases of the Valiant API will allow the lookup of Leads using the returned <code>id</code> here as a reference. Be sure to store the returned <code>id</code> if you think you might want to look up the Lead at a later date.
-</aside>
+
+### Example request
+
+> Example request
+
+```bash
+curl -iX GET \
+  https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844 \
+  -H "X-AUTH-ID:         <API_ID>" \
+  -H "X-AUTH-SIGNED-KEY: <API_SIGNED_KEY>" \
+  -H "Content-Type:      application/vnd.api+json" \
+```
+
+
+### Response
+
+If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
+
+| Data             | Description                                                                 |
+| ---------------- | --------------------------------------------------------------------------- |
+| **`id`**         | A unique identifier in `uuid` format generated for the resource by Valiant. |
+| **`type`**       | The name of the resource called on.                                         |
+| **`attributes`** | A map with values of resource attributes.  
+
+
+> Example successful response
+
+```json
+{
+    :data => {
+                :id => "18a14b74-f85c-46a7-bc64-1b963e1ea844",
+              :type => :lead,
+        :attributes => {
+                                     :abn => "46832613142",
+                     :accounting_software => "xero",
+                 :ato_payment_arrangement => true,
+            :average_monthly_sales_amount => 100000,
+                    :business_performance => "bad",
+                        :cloud_accounting => true,
+                                 :company => "The Wind Waker",
+                           :credit_status => "great",
+                :default_liability_amount => 0,
+            :director_guarantee_available => true,
+                                   :email => "1bob@prosacco.co",
+                             :entity_type => "IND",
+                         :equipment_class => "",
+                              :first_name => "Fairies",
+                               :franchise => true,
+                                :industry => "hospitality",
+                          :industry_group => "H440",
+                           :invoice_sales => true,
+                               :last_name => "Orca",
+                        :lead_description => "blah",
+                            :legal_action => false,
+                :legal_action_description => "n.a.",
+                            :loan_purpose => "general",
+                        :loan_sub_purpose => "inventory",
+                          :merchant_sales => true,
+                          :months_trading => 24,
+                           :new_equipment => "",
+                                   :phone => "0400 214 072",
+                             :postal_code => "2010",
+                      :prefers_redrawable => true,
+                 :prefers_speed_over_rate => true,
+                        :previous_default => false,
+                        :requested_amount => 50000.0,
+                                   :state => "NSW",
+                  :tax_outstanding_amount => 0,
+                          :tax_up_to_date => true,
+                            :utm_campaign => "",
+                             :utm_content => "",
+                              :utm_medium => "",
+                              :utm_source => "",
+                                :utm_term => "",
+                              :created_at => 2019-05-01 00:07:16 UTC,
+                                  :status => "Received",
+                              :updated_at => 2019-05-01 00:07:16 UTC
+        },
+             :links => {
+            :self => "https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"
+        }
+    }
+}
+
+```
