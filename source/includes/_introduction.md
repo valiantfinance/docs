@@ -29,9 +29,9 @@ To make life even easier, we have put together a ready-to-go collection of our A
 
 To test the API endpoints in our Postman collection, simply:
 
-1. Add your **`X-AUTH-ID`** as the Current Value of the `id` variable;
-2. Add your **`X-AUTH-SIGNED-KEY`** as the Current Value of the `signed_key` variable; and
-3. Make sure you are testing the correct url - either [`https://mercury-summer.valiant.finance/`](https://mercury-summer.valiant.finance/) or [`https://valiant.finance/`](https://valiant.finance/).
+1. Add your **`X-AUTH-ID`** as the current value of the `id` variable;
+2. Add your **`X-AUTH-SIGNED-KEY`** as the current value of the `signed_key` variable; and
+3. Ensure you are testing the correct url - either our sandbox [`https://mercury-summer.valiant.finance/`](https://mercury-summer.valiant.finance/) or production [`https://valiant.finance/`](https://valiant.finance/).
 
 Not sure how to generate the **`X-AUTH-ID`** or **`X-AUTH-SIGNED-KEY`** mentioned above? Take a look at the _Authentication_ -> _Headers_ section below.
 
