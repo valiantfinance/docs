@@ -218,15 +218,13 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
 | **`type`**       | The name of the resource called on.                                         |
 | **`attributes`** | A map with values of resource attributes.                                   |
 
-
 ## Read Lead
 
-| Item              | Details                                           |
-| ----------------- | ------------------------------------------------- |
-| Endpoint          | `/api/v1/leads/:id`                               |
-| Supported methods | `GET`                                             |
-| Description       | Request the status of a Lead via Lead ID.         |
-
+| Item              | Details                                   |
+| ----------------- | ----------------------------------------- |
+| Endpoint          | `/api/v1/leads/:id`                       |
+| Supported methods | `GET`                                     |
+| Description       | Request the status of a Lead via Lead ID. |
 
 ### Example request
 
@@ -240,7 +238,6 @@ curl -iX GET \
   -H "Content-Type:      application/vnd.api+json" \
 ```
 
-
 ### Response
 
 If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
@@ -249,8 +246,7 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
 | ---------------- | --------------------------------------------------------------------------- |
 | **`id`**         | A unique identifier in `uuid` format generated for the resource by Valiant. |
 | **`type`**       | The name of the resource called on.                                         |
-| **`attributes`** | A map with values of resource attributes.  
-
+| **`attributes`** | A map with values of resource attributes.                                   |
 
 > Example successful response
 
