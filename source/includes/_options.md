@@ -15,6 +15,7 @@ Our Options API is used to provide accepted values for a number of attributes ac
 | Endpoint          | `/api/v1/options/accounting_software`                              |
 | Supported methods | `GET`                                                              |
 | Description       | Returns a collection of accounting software label and value pairs. |
+| Authentication    | Not Required.                                                      |
 
 
 ### Corresponding Attributes
@@ -103,6 +104,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/australian_state`                              |
 | Supported methods | `GET`                                                           |
 | Description       | Returns a collection of Australian state label and value pairs. |
+| Authentication    | Not Required.                                                   |
 
 
 ### Corresponding Attributes
@@ -191,6 +193,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/business_performance`                             |
 | Supported methods | `GET`                                                              |
 | Description       | Returns a collection of business performance label and value pairs.|
+| Authentication    | Not Required.                                                      |
 
 
 ### Corresponding Attributes
@@ -278,6 +281,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/credit_status`                             |
 | Supported methods | `GET`                                                       |
 | Description       | Returns a collection of credit status label and value pairs.|
+| Authentication    | Not Required.                                               |
 
 
 ### Corresponding Attributes
@@ -366,6 +370,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/entity_type`                                      |
 | Supported methods | `GET`                                                              |
 | Description       | Returns a collection of entity type label and value pairs.         |
+| Authentication    | Not Required.                                                      |
 
 
 ### Corresponding Attributes
@@ -454,6 +459,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/equipment_class`                               |
 | Supported methods | `GET`                                                           |
 | Description       | Returns a collection of equipment class label and value pairs.  |
+| Authentication    | Not Required.                                                   |
 
 
 ### Corresponding Attributes
@@ -542,6 +548,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/industry`                                      |
 | Supported methods | `GET`                                                           |
 | Description       | Returns a collection of industry label and value pairs.         |
+| Authentication    | Not Required.                                                   |
 
 
 ### Corresponding Attributes
@@ -631,6 +638,7 @@ If a request is successful, a JSON response will include a collection of valid o
 | Endpoint          | `/api/v1/options/loan_purpose`                             |
 | Supported methods | `GET`                                                      |
 | Description       | Returns a collection of loan purpose label and value pairs.|
+| Authentication    | Not Required.                                              |
 
 
 ### Corresponding Attributes

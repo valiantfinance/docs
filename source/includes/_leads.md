@@ -11,6 +11,7 @@ Our Lead API allows third parties to create and read via the API.
 | Endpoint          | `/api/v1/leads`                                   |
 | Supported methods | `POST`                                            |
 | Description       | Submits a Lead with the given details to Valiant. |
+| Authentication    | Required.                                         |
 
 ### Parameters
 
@@ -225,6 +226,7 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
 | Endpoint          | `/api/v1/leads/:id`                       |
 | Supported methods | `GET`                                     |
 | Description       | Request the status of a Lead via Lead ID. |
+| Authentication    | Required.                                 |
 
 ### Example request
 
