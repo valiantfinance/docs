@@ -22,7 +22,7 @@ var params = {
   first_name: "Isaac",
   last_name: "Newton",
   phone: "0400000000",
-  email: "api@valiant.finance",
+  email: "isaac@example.com",
   months_trading: "12"
 };
 
@@ -48,7 +48,7 @@ var params = {
   "first_name":     "Isaac",
   "last_name":      "Newton",
   "phone":          "0400000000",
-  "email":          "api@valiant.finance",
+  "email":          "isaac@example.com",
   "months_trading": "12"
 }
 
@@ -91,7 +91,7 @@ curl -iX POST \
   -d '{
         "first_name":     "Isaac",
         "last_name":      "Newton",
-        "email":          "api@valiant.finance",
+        "email":          "isaac@example.com",
         "phone":          "0400000000",
         "months_trading": "12"
       }'
