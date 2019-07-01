@@ -154,7 +154,68 @@ Below lists a detail of accepted parameters that can be posted to the endpoint a
 > Example successful response
 
 ```json
-"{\"data\":{\"id\":\"18a14b74-f85c-46a7-bc64-1b963e1ea844\",\"type\":\"lead\",\"attributes\":{\"abn\":\"46832613142\",\"accounting_software\":\"xero\",\"ato_payment_arrangement\":true,\"average_monthly_sales_amount\":100000,\"business_performance\":\"bad\",\"cloud_accounting\":true,\"company\":\"The Wind Waker\",\"credit_status\":\"great\",\"default_liability_amount\":0,\"director_guarantee_available\":true,\"email\":\"1bob@prosacco.co\",\"entity_type\":\"IND\",\"equipment_class\":\"\",\"first_name\":\"Fairies\",\"franchise\":true,\"industry\":\"hospitality\",\"industry_group\":\"H440\",\"initial_settlement_amount\":\"1000\",\"initial_settlement_date\":\"Mon, 20 May 2019 11:37:55 AEST +10:00\",\"invoice_sales\":true,\"last_name\":\"Orca\",\"lead_description\":\"blah\",\"legal_action\":false,\"legal_action_description\":\"n.a.\",\"loan_purpose\":\"general\",\"loan_sub_purpose\":\"inventory\",\"merchant_sales\":true,\"months_trading\":24,\"new_equipment\":\"\",\"phone\":\"0400 214 072\",\"postal_code\":\"2010\",\"prefers_redrawable\":true,\"prefers_speed_over_rate\":true,\"previous_default\":false,\"requested_amount\":50000.0,\"state\":\"NSW\",\"tax_outstanding_amount\":0,\"tax_up_to_date\":true,\"utm_campaign\":\"\",\"utm_content\":\"\",\"utm_medium\":\"\",\"utm_source\":\"\",\"utm_term\":\"\",\"created_at\":2013,\"status\":\"Received\",\"updated_at\":2013},\"links\":{\"self\":\"https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844\"}}}"
+{
+    :data => {
+                :id => "18a14b74-f85c-46a7-bc64-1b963e1ea844",
+              :type => :lead,
+        :attributes => {
+                                     :abn => null,
+                     :accounting_software => null,
+                    :annual_interest_rate => null,
+                 :ato_payment_arrangement => null,
+            :average_monthly_sales_amount => null,
+                    :business_performance => null,
+                        :cloud_accounting => null,
+                                 :company => null,
+                           :credit_status => null,
+                :default_liability_amount => null,
+            :director_guarantee_available => null,
+                                   :email => "isaac@example.com",
+                             :entity_type => null,
+                         :equipment_class => null,
+                              :first_name => "Isaac",
+                               :franchise => null,
+                                :industry => null,
+                          :industry_group => null,
+               :initial_settlement_amount => null,
+                 :initial_settlement_date => null,
+                           :invoice_sales => null,
+                               :last_name => "Newton",
+                        :lead_description => null,
+                            :legal_action => null,
+                :legal_action_description => null,
+                            :loan_purpose => null,
+                        :loan_sub_purpose => null,
+                          :merchant_sales => null,
+                          :months_trading => 12,
+                           :new_equipment => "",
+                                   :phone => "0400000000",
+                             :postal_code => null,
+                      :prefers_redrawable => null,
+                 :prefers_speed_over_rate => null,
+                        :previous_default => null,
+                        :requested_amount => null,
+                                   :state => null,
+                  :tax_outstanding_amount => 0,
+                          :tax_up_to_date => null,
+                             :term_months => null,
+                            :utm_campaign => null,
+                             :utm_content => null,
+                              :utm_medium => null,
+                              :utm_source => null,
+                                :utm_term => null,
+                              :created_at => "2019-05-01 00:07:16 UTC",
+                                  :status => "Received",
+                              :updated_at => "2019-05-01 00:07:16 UTC",
+                :referrer_earnings_amount => null,
+                      :unqualified_reason => null
+        },
+             :links => {
+            :self => "https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"
+        }
+    }
+}
+
 ```
 
 If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON` response will be delivered with all resource related information in a `data` key.
@@ -206,6 +267,7 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
         :attributes => {
                                      :abn => "46832613142",
                      :accounting_software => "xero",
+                    :annual_interest_rate => null,
                  :ato_payment_arrangement => true,
             :average_monthly_sales_amount => 100000,
                     :business_performance => "bad",
@@ -216,11 +278,13 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
             :director_guarantee_available => true,
                                    :email => "1bob@prosacco.co",
                              :entity_type => "IND",
-                         :equipment_class => "",
+                         :equipment_class => null,
                               :first_name => "Fairies",
                                :franchise => true,
                                 :industry => "hospitality",
                           :industry_group => "H440",
+               :initial_settlement_amount => null,
+                 :initial_settlement_date => null,
                            :invoice_sales => true,
                                :last_name => "Orca",
                         :lead_description => "blah",
@@ -230,7 +294,7 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
                         :loan_sub_purpose => "inventory",
                           :merchant_sales => true,
                           :months_trading => 24,
-                           :new_equipment => "",
+                           :new_equipment => null,
                                    :phone => "0400 214 072",
                              :postal_code => "2010",
                       :prefers_redrawable => true,
@@ -240,14 +304,17 @@ If a request is successful, a [`json:api`](http://jsonapi.org/) compliant `JSON`
                                    :state => "NSW",
                   :tax_outstanding_amount => 0,
                           :tax_up_to_date => true,
-                            :utm_campaign => "",
-                             :utm_content => "",
-                              :utm_medium => "",
-                              :utm_source => "",
-                                :utm_term => "",
-                              :created_at => 2019-05-01 00:07:16 UTC,
+                             :term_months => null,
+                            :utm_campaign => null,
+                             :utm_content => null,
+                              :utm_medium => null,
+                              :utm_source => null,
+                                :utm_term => null,
+                              :created_at => "2019-05-01 00:07:16 UTC",
                                   :status => "Received",
-                              :updated_at => 2019-05-01 00:07:16 UTC
+                              :updated_at => "2019-05-01 00:07:16 UTC",
+                :referrer_earnings_amount => null,
+                      :unqualified_reason => null
         },
              :links => {
             :self => "https://valiant.finance/api/v1/leads/18a14b74-f85c-46a7-bc64-1b963e1ea844"
